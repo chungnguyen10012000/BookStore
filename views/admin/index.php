@@ -18,6 +18,7 @@ if (!$_SESSION['id_admin']) {
     <?php include('./include/script.php'); ?>
     <link rel="stylesheet" href="../../assets/css/admin/navbar.css">
     <link rel="stylesheet" href="../../assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/admin/index.css">
 </head>
 
 <body style="overflow: unset;">
@@ -25,8 +26,7 @@ if (!$_SESSION['id_admin']) {
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom sticky-top">
         <a class="navbar-brand" href="index.php">
-            <img src="../../assets/images/admin/book_brand.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Bookstore4T
+            Bookstore
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,15 +34,11 @@ if (!$_SESSION['id_admin']) {
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <div class="navbar-nav mx-auto">
-                <form class="nav-item form-inline">
-                    <input class="form-control mr-2" style="width:40vw;" type="search" placeholder="Looking for a product?" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
             <div class="navbar-nav ml-auto">
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" alt="Image placeholder" src="../../assets/images/admin/avatar.jpg" width="30" height="30">
+                        <img class="rounded-circle" alt="Image placeholder" src="../../assets/images/admin/avatar_1.jpg" width="30" height="30">
                         <span class="mb-0" style="color: aliceblue;" id="topLeftName">
                             <?php
                             echo $_SESSION["first_name"];
@@ -115,134 +111,6 @@ if (!$_SESSION['id_admin']) {
             </div>
             <div class="col-md-10 col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-6 my-3 d-flex align-items-stretch">
-                        <div class="card card-stats bg-success">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total products</h5>
-                                        <div class="h2 font-weight-bold mb-0 text-center">
-                                            <?php
-                                            $query = "select count(*) as total from book";
-
-                                            $result = $mysql_db->query($query);
-                                            $row = $result->fetch_assoc();
-                                            echo $row['total'];
-                                            ?> </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape text-dark rounded-circle ">
-                                            <i class="fas fa-book"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-dark mr-2"><i class="fa fa-arrow-up"></i>
-                                        0.00%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6 my-3 d-flex align-items-stretch">
-                        <div class="card card-stats bg-info">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total customers</h5>
-                                        <div class="h2 font-weight-bold mb-0 text-center">
-                                            <?php
-                                            $query = "select count(*) as total from customer";
-
-                                            $result = $mysql_db->query($query);
-                                            $row = $result->fetch_assoc();
-                                            echo $row['total'];
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape text-dark rounded-circle ">
-                                            <i class="fas fa-user-alt"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-dark mr-2"><i class="fa fa-arrow-up"></i>
-                                        0.00%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6 my-3 d-flex align-items-stretch">
-                        <div class="card card-stats bg-light">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total employees</h5>
-                                        <div class="h2 font-weight-bold mb-0 text-center">
-                                            <?php
-                                            $query = "select count(*) as total from employee";
-
-                                            $result = $mysql_db->query($query);
-                                            $row = $result->fetch_assoc();
-                                            echo $row['total'];
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape text-dark rounded-circle ">
-                                            <i class="fas fa-user-friends" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-dark mr-2"><i class="fa fa-arrow-up"></i>
-                                        0.00%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6 my-3 d-flex align-items-stretch">
-                        <div class="card card-stats bg-warning">
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="card-title text-uppercase text-muted mb-0">Total contacts</h5>
-                                        <div class="h2 font-weight-bold mb-0 text-center">
-                                            <?php
-                                            $query = "select count(*) as total from send_email_log";
-
-                                            $result = $mysql_db->query($query);
-                                            $row = $result->fetch_assoc();
-                                            echo $row['total'];
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="icon icon-shape text-dark rounded-circle ">
-                                            <i class="fas fa-comment"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="mt-3 mb-0 text-sm">
-                                    <span class="text-dark mr-2"><i class="fa fa-arrow-up"></i>
-                                        0.00%</span>
-                                    <span class="text-nowrap">Since last month</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
@@ -290,8 +158,8 @@ if (!$_SESSION['id_admin']) {
 
                         </div>
                         <div class="col d-flex justify-content-center my-3">
-                            <button class="btn btn-outline-primary mx-3" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
-                            <button class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#passwordModal" ?>Change
+                            <button class="btn-primary mx-3" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
+                            <button class="btn btn-success mr-2" data-toggle="modal" data-target="#passwordModal" ?>Change
                                 Password</button>
                         </div>
                     </div>

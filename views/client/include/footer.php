@@ -8,7 +8,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="footer-top my-4">
-                    <a href="#"><img src="../../../assets/images/header/logo.png" alt="logo" class="img-fluid mb-3"></a>
+                    <a href="#"><img src="../../../assets/images/header/Logo.jpg" alt="logo" class="img-fluid mb-3"></a>
                 </div>
                 <div class="footer-contact my-4">
                     <a href="#" class="mr-3"><i class="bi bi-facebook"></i></a>

@@ -1,14 +1,6 @@
 <link rel="stylesheet" href="../../../assets/css/product_page/product.css">
 
-<div class="product-page-banner text-center align-content-end align-middle">
-    <div class="content" style="margin-top: 10.5%; padding-bottom: 12.5%;">
-        <h1 class="title">4T STORE</h1>
-        <div class="route">
-            <a href="../home_page/index.php" style="color: #FFFFFF; font-style: italic;">Home</a> / <p class="d-inline" style="color: #CE7852; font-style: italic;">Books</p>
-        </div>
-    </div>
-</div>
-<div class="product-page py-5">
+<div class="product-page py-5" style="margin-top: 100px">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3">
@@ -21,18 +13,6 @@
                                 <li><a href="index.php?category=<?php echo $category['name']; ?>"><?php echo ucwords($category['name']); ?><span class="float-right"> (<?php echo $category['number'] ?>)</span></a></li>
                             <?php } ?>
                         </ul>
-                    </div>
-                    <div class="ads position-relative text-center">
-                        <img src="../../../assets/images/product_page/banner_left.png" alt="banner" class="img-fluid my-3">
-                        <div class="text position-absolute text-uppercase text-white">
-                            <h5 class="color-orange">New product</h5>
-                            <div class="">
-                                <h2 class="fw-bold fs-1">Save up to <br>
-                                    <span class="color-orange">40%</span>
-                                    off
-                                </h2>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

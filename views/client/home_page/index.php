@@ -20,7 +20,6 @@
     <?php include( "../include/header.php"); ?>
     <?php include( "./header.php"); ?>
     <?php include( '../include/script.php'); ?>
-    <?php include( './subscribe.php'); ?>
     <?php include( './new_product.php'); ?>
     <?php include( './best_seller.php'); ?>
     <?php include( "../include/footer.php"); ?>
