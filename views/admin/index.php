@@ -24,42 +24,7 @@ if (!$_SESSION['id_admin']) {
 <body style="overflow: unset;">
     <!-- Side bar -->
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom sticky-top">
-        <a class="navbar-brand" href="index.php">
-            Bookstore
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <div class="navbar-nav mx-auto">
-            </div>
-            <div class="navbar-nav ml-auto">
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" alt="Image placeholder" src="../../assets/images/admin/avatar_1.jpg" width="30" height="30">
-                        <span class="mb-0" style="color: aliceblue;" id="topLeftName">
-                            <?php
-                            echo $_SESSION["first_name"];
-                            ?>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-cog"></i>
-                            <span class="nav-link-text">Change avatar</span>
-                        </a>
-                        <a class="dropdown-item" href="./logout.php">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="nav-link-text">Logout</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </nav>
+    <?php include('./navbar.php'); ?>
 
 
     <div class="container-fluid">
@@ -123,7 +88,7 @@ if (!$_SESSION['id_admin']) {
                                 <table class="table table-hover table-responsive-lg" id='tableProfile'>
                                     <?php
                                     $sql = "select email, first_name, last_name, 
-                                    user_name , phone, birthdate from admin WHERE id= '" . $_SESSION['id_admin'] . "'";
+                                    user_name , phone, birthdate, avatar from admin WHERE id= '" . $_SESSION['id_admin'] . "'";
                                     $result = $mysql_db->query($sql);
                                     $row = $result->fetch_assoc();
                                     ?>
@@ -152,6 +117,11 @@ if (!$_SESSION['id_admin']) {
                                         <th>Birthday</th>
                                         <td><?php echo $row['birthdate']; ?></td>
                                     </tr>
+                                    <tr>
+                                        <th>Avatar</th>
+                                        <td><?php echo $row['avatar'] ?></td>
+                                    </tr>
+                                    
                                 </table>
 
                             </div>
@@ -194,10 +164,15 @@ if (!$_SESSION['id_admin']) {
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputLastName" class="col-sm-2 col-form-label font-weight-bold">Last
-                                Name</label>
+                            <label for="k" class="col-sm-2 col-form-label font-weight-bold">Last Name</label>
+                            <div class="col-sm-10" id="formK">
+                                <input type="text" class="form-control" id="inputK" value="<?php echo $row['last_name']; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputLastName" class="col-sm-2 col-form-label font-weight-bold">Avatar</label>
                             <div class="col-sm-10" id="formLastName">
-                                <input type="text" class="form-control" id="inputLastName" value="<?php echo $row['last_name']; ?>">
+                                <input type="text" class="form-control" id="inputLastName" value="<?php echo $row['avatar']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -292,8 +267,6 @@ if (!$_SESSION['id_admin']) {
 
         </div>
     </div>
-
-
 
     <!-- End toast section -->
     <script src="../../assets/js/admin/edit_profile.js"></script>

@@ -32,21 +32,22 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `first_name` varchar(20) NOT NULL,
-  `last_name` varchar(20) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `user_name` varchar(30) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `registered_at` datetime DEFAULT NULL,
-  `password` text DEFAULT NULL
+  `password` text DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `email`, `first_name`, `last_name`, `user_name`, `phone`, `birthdate`, `registered_at`, `password`) VALUES
-(1, 'nvchung00@gmail.com', 'Chung', 'Nguyen Van', 'chungnguyen10012000', '098-943-9678', '2000-01-10', '2021-11-17 8:17:33', 'chungnguyen'),
-(2, 'admin@gmail.com', 'Admin', 'Name', 'admin', '012-345-6789', '2000-01-10', '2021-11-17 8:30:22', 'admin');
+INSERT INTO `admin` (`id`, `email`, `first_name`, `last_name`, `user_name`, `phone`, `birthdate`, `registered_at`, `password`, `avatar`) VALUES
+(1, 'nvchung00@gmail.com', 'Chung', 'Nguyen Van', 'chungnguyen10012000', '098-943-9678', '2000-01-10', '2021-11-17 8:17:33', 'chungnguyen','../../assets/images/admin/avatar_1.jpg'),
+(2, 'admin@gmail.com', 'Admin', 'Name', 'admin', '012-345-6789', '2000-01-10', '2021-11-17 8:30:22', 'admin', '../../assets/images/admin/avatar_1.jpg');
 
 -- --------------------------------------------------------
 

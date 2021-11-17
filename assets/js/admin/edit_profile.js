@@ -8,15 +8,16 @@ $(document).ready(function () {
                 userName: $('#inputUserName').val(),
                 firstName: $('#inputFirstName').val(),
                 lastName: $('#inputLastName').val(),
+                nameX: $('#inputK').val(),
                 email: $('#inputEmail').val(),
                 phone: $('#inputPhone').val(),
-                birthday: $('#inputBirthday').val(),
-
+                birthday: $('#inputBirthday').val()
             },
             function (data, status) {
                 data = JSON.parse(data);
                 if (data.success) {
                     console.log("Profile has been changed.");
+                    console.log(data)
                     $("#topLeftName").text($('#inputFirstName').val());
                     $("#tableProfile").load(window.location.href + " #tableProfile > *");
                     modal.modal('hide');
@@ -60,6 +61,11 @@ $(document).ready(function () {
                         if (data.birthday) {
                             modal.find('#formBirthday').append('<small class="warning_error"><i class="fas fa-exclamation-triangle"></i>' + ' ' +
                                 data.birthday +
+                                '</small>');
+                        }
+                        if (data.avatar) {
+                            modal.find('#formAvatar').append('<small class="warning_error"><i class="fas fa-exclamation-triangle"></i>' + ' ' +
+                                data.avatar +
                                 '</small>');
                         }
                     }

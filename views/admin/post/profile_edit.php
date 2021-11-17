@@ -37,11 +37,7 @@ function validLastName($data)
 {
     if (empty($data)) {
         return "Last Name is required";
-    } else {
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $data)) {
-            return "Only letters and white space allowed";
-        }
-    }
+    } 
     return '';
 }
 function validEmail($data)
@@ -97,6 +93,7 @@ function validBirthday($data)
     }
     return '';
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = array(
         "userName" => "",
@@ -105,29 +102,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "email" => "",
         "phone" => "",
         "birthday" => "",
+        'avatar' => "",
         "systemError" => "",
         "success" => true
     );
     $message['userName'] = validUserName($_POST['userName']);
     $message['firstName'] = validFirstName($_POST['firstName']);
-    $message['lastName'] = validLastName($_POST['lastName']);
+    
     $message['email'] = validEmail($_POST['email']);
     $message['phone'] = validPhone($_POST['phone']);
     $message['birthday'] = validBirthday($_POST['birthday']);
-    if (
-        $message['userName'] || $message['firstName']
-        ||  $message['lastName'] || $message['email']
-        || $message['phone'] || $message['birthday']
-    ) {
+    if ($message['userName'] || $message['firstName'] ||   $message['email'] || $message['phone'] || $message['birthday']) 
+    {
         $message['success'] = false;
     } else {
         $query = "update admin set 
         user_name = '" . $_POST['userName'] . "' , 
-        first_name = '" . $_POST['firstName'] . "' ,
-        last_name = '" . $_POST['lastName'] . "' ,
+        first_name = '" . $_POST['firstName'] . "' , 
         email = '" . $_POST['email'] . "' ,
         phone = '" . $_POST['phone'] . "' ,
-        birthdate = '" . $_POST['birthday'] . "' 
+        birthdate = '" . $_POST['birthday'] . "' ,
+        avatar = '" . $_POST['lastName'] . "'
         where id='" . $_SESSION['id_admin'] . "'  
         ";
         $result = $mysql_db->query($query);
