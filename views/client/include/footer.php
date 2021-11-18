@@ -8,24 +8,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="footer-top my-4">
-                    <a href="#"><img src="../../../assets/images/header/Logo.jpg" alt="logo" class="img-fluid mb-3"></a>
-                </div>
-                <div class="footer-contact my-4">
-                    <a href="#" class="mr-3"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-google"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-                </div>
-                <div class="footer-menu">
-                    <ul class="d-flex flex-wrap justify-content-center px-0">
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">Best Seller</a></li>
-                        <li><a href="#">All Product</a></li>
-                        <li><a href="#">Wishlist</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                    <a href="#"><img src="https://i.pinimg.com/originals/70/bd/63/70bd630505578fffc4c873001f89a9e1.jpg" alt="logo" class="img-fluid mb-3"></a>
                 </div>
             </div>
         </div>

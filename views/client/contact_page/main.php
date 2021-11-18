@@ -43,7 +43,7 @@
                              <div class="d-flex justify-content-center">
                                  <button type="button" class="btn btn-primary mt-2" name="btn_send_email"
                                      id="btn_send_email">
-                                     Send email
+                                     Submit
                                  </button>
                                  <div class="spinner-border mt-2 ml-2" id="spinnerEmail" role="status">
 

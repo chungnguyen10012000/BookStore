@@ -21,6 +21,24 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <div class="navbar-nav ml-auto">
+                <li class="nav-item active" >
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="product.php">Product <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="transaction.php">Transaction <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="customer.php">Customer <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="employee.php">Employee <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item active" >
+                    <a class="nav-link" href="contact.php">Contact <span class="sr-only"></span></a>
+                </li>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img id="linkAvatar" class="rounded-circle" alt="Image placeholder" src=<?php echo $row['avatar'] ?> width="30" height="30">

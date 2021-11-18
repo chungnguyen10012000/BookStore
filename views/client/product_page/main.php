@@ -6,11 +6,11 @@
             <div class="col-lg-3 col-md-3">
                 <div class="sidebar">
                     <div class="category">
-                        <h5 class="text-uppercase fw-bold pb-3 border-bottom border-dark">Product category</h5>
+                        <h5 class="text-uppercase fw-bold pb-3 border-dark" style="color: red">Category</h5>
                         <ul>
-                            <li><a href="index.php">All<span class="float-right"> (<?php echo count($product->getData()); ?>)</span></a></li>
+                            <li><a href="index.php">All<span class="float-right"> <?php echo count($product->getData()); ?></span></a></li>
                             <?php foreach ($categoriesDetail as $category) { ?>
-                                <li><a href="index.php?category=<?php echo $category['name']; ?>"><?php echo ucwords($category['name']); ?><span class="float-right"> (<?php echo $category['number'] ?>)</span></a></li>
+                                <li><a href="index.php?category=<?php echo $category['name']; ?>"><?php echo ucwords($category['name']); ?><span class="float-right"> <?php echo $category['number'] ?></span></a></li>
                             <?php } ?>
                         </ul>
                     </div>
@@ -26,43 +26,6 @@
                     print "<span class='search-result-title'>Result for search keyword '<span class='search-keyword'>$keyword</span>' ($nums)</span>";
                     print "</div>";
                 } ?>
-                <?php
-                    // $url = '';
-                    // if (!empty($_GET['category'])) {
-                    //     $url = $url . 'category=' . $_GET['category'];
-                    // }
-                    // if (!empty($_GET['keyword'])) {
-                    //     if ($url != ''){
-                    //         $url = $url . '&keyword=' . $_GET[''];
-                    //     }
-                    // }
-                ?>
-                <form method="GET" action="" class="sort-bar">
-                    <span class="sort-bar__label mb-2">Order by</span>
-                    <div class="sort-by-options mb-1">
-                        <!-- <div class="sort-by-options__option sort-by-options__option--selected">New</div> -->
-                        <!-- <div class="sort-by-options__option">Bán chạy</div> -->
-                        <div>
-                            <div class="select-with-status">
-                                <div class="select-with-status__holder select-with-status__box-shadow">
-                                    <select name="oderbyprice" class="select-with-status__placeholder select-option">
-                                        <option class="dnt-option" value="price">Price</option>
-                                        <option class="dnt-option" value="asc">Sort ascending</option>
-                                        <option class="dnt-option" value="desc">Sort descending</option>
-                                    </select>
-                                    <!-- <span><svg viewBox="0 0 10 6" class="svg-icon icon-arrow-down-small">
-                                            <path d="M9.7503478 1.37413402L5.3649665 5.78112957c-.1947815.19574157-.511363.19651982-.7071046.00173827a.50153763.50153763 0 0 1-.0008702-.00086807L.2050664 1.33007451l.0007126-.00071253C.077901 1.18820749 0 1.0009341 0 .79546595 0 .35614224.3561422 0 .7954659 0c.2054682 0 .3927416.07790103.5338961.20577896l.0006632-.00066318.0226101.02261012a.80128317.80128317 0 0 1 .0105706.0105706l3.3619016 3.36190165c.1562097.15620972.4094757.15620972.5656855 0a.42598723.42598723 0 0 0 .0006944-.00069616L8.6678481.20650022l.0009529.0009482C8.8101657.07857935 8.9981733 0 9.2045341 0 9.6438578 0 10 .35614224 10 .79546595c0 .20495443-.077512.39180497-.2048207.53283641l.0003896.00038772-.0096728.00972053a.80044712.80044712 0 0 1-.0355483.03572341z" fill-rule="nonzero"></path>
-                                        </svg>
-                                    </span> -->
-                                    <div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="result-btn sort-by-options__option sort-by-options__option--selected">Result</button>                   
-                </form>
                 <div class="product-list row mt-5">
                     <?php foreach ($books as $book) { ?>
                         <div class="product text-center col-lg-4 col-md-4 col-sm-6 col-6 mb-5">
@@ -70,14 +33,14 @@
                                 <a href="../detail_book_page/index.php?id=<?php echo $book['id']; ?>"><img style="max-height: 210px;" src="<?php echo $book['link_image'] ?>" alt="product<?php echo $book['id']; ?>" class="img-fluid">
                                 </a>
                                 <div class="hot-box" <?php if ($book['is_bestseller'] == 0) echo "hidden"; ?>>
-                                    <span class="hot-label">BEST SELLER</span>
+                                    <span class="hot-label">TOP</span>
                                 </div>
                             </div>
                             <div class="product-content text-center pt-3 pb-1 px-2">
-                                <h6 title="<?php echo $book['name']; ?>"><?php echo $book['name']; ?></h6>
+                                <h6 title="<?php echo $book['name']; ?>"> <b><?php echo $book['name']; ?></b></h6>
                                 <ul class="price d-flex justify-content-center mt-1">
-                                    <li class="color-orange mr-5 fw-bold">$<?php echo $book['price']; ?></li>
-                                    <li class="fw-bold text-decoration-line-through"><del>$<?php echo $book['price'] + 1.0; ?></del></li>
+                                    <li class=" mr-5 fw-bold mx-auto" style="color: black;">$<?php echo $book['price']; ?></li>
+                                    
                                 </ul>
                             </div>
                             <?php 
@@ -145,48 +108,4 @@
         event.preventDefault();
         return false;
     });                      
-
-    $('.result-btn').click(function(event) {
-        let pathname =  $(location).attr('href');
-        let criteria = $('.select-option').val();
-        pathname = decodeURIComponent(pathname);
-        if (criteria == 'price') {
-                event.preventDefault();
-                return false;
-            }
-        if (pathname.indexOf('?') == -1) {
-            $(location).attr('href',  pathname + '?orderbyprice=' + criteria);               
-        }
-        else {
-            let url_prefix = pathname.split('?')[0];
-            let argsStr = pathname.split('?')[1];            
-            argsStr = '&' + argsStr;
-            let args = argsStr.split('&')[1];
-            // alert(typeof args);
-            let type_var = args.split('=')[0];
-            let value_var = args.split('=')[1];
-            // alert(pathname);
-            // alert(url_prefix);
-                       
-            if (type_var == 'category') {                
-                $(location).attr('href',  url_prefix + '?category=' + value_var + '&orderbyprice=' + criteria);
-            }
-            else if (type_var == 'keyword') {
-                $(location).attr('href',  url_prefix + '?keyword=' + value_var + '&orderbyprice=' + criteria);
-            }
-        }
-        
-        // alert(argsStr);
-        // alert(args);
-        // let categoryStr = 'category=';
-        // let indexOfCategory = pathname.indexOf(categoryStr);
-        // let category = '';
-        // if (indexOfCategory != -1) {
-        //     category = pathname.slice(indexOfCategory + categoryStr.length, )
-        // }
-        // alert(decodeURIComponent(pathname));
-        
-        event.preventDefault();
-        return false;
-    });
 </script>

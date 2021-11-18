@@ -5,3 +5,7 @@
 .left_bar_link i{
     position: absolute;
 }
+
+.nav-item .nav-link:hover{
+    color: red !important;
+}

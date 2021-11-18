@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('#btn_send_email').click(function () {
         $('#spinnerEmail').show();
         $('.warning_email').remove();
+        console.log(123)
         $.post("send_email.php",
             {
                 firstName: $('#inputFirstname').val(),

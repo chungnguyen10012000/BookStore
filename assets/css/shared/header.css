@@ -30,10 +30,12 @@ header {
 
 .has-search .form-control {
     padding-left: 2.375rem;
+    width: 100px;
+    height: 42px;
 }
 
 .has-search .form-control-feedback {
-    width: 50px;
+    width: 100px;
     position: absolute;
     z-index: 2;
     display: block;
@@ -85,7 +87,7 @@ header {
 } */
 
 .header nav .navbar-nav .nav-item .nav-link:hover {
-    color: #7752ce !important;
+    color: red !important;
 }
 
 .header .cart {

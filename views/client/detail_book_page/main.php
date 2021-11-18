@@ -4,8 +4,7 @@ session_start();
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 <?php
-    $book_id = $_GET["id"];
-    //$book_id = 3;
+    $book_id = $_GET["id"]; 
     require ('../../../data/config.php'); 
 
     $sql = "SELECT name, price, description, link_image, published_at from book where id = $book_id";
@@ -51,20 +50,13 @@ session_start();
         while ($row = $res -> fetch_assoc()){
             $id_cus = $row['id'];
         }
-        //echo "<script> alert($id_cus) </script>";
-
+        
         if ($_POST['star']==0){
             $qualityStar =  5;    
         } else {
             $qualityStar =  6 - $_POST['star'];
         }
         $contentReview = $_POST['content'];
-
-        // $qualityStar = 6 - $_POST['star'];
-        // $contentReview = $_POST['content'];
-        // $priceStar = 6 - $_POST['star1'];
-        // echo "<script> alert($qualityStar) </script>";
-        // echo "<script> alert($priceStar) </script>";
 
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $day = date('Y-m-d H:i:s');
@@ -96,10 +88,7 @@ session_start();
 
 
 <link rel="stylesheet" href="../../../assets/css/detail_book_page/detail_book.css">
-<div class="container-fluid">
-    <div class="row" id="background">
-        <h3 class="title col-md-12">4T BOOKSTORE</h3>
-    </div>
+<div class="container-fluid" style="margin-top: 100px">
     <div class="row">
         <div class="col-md-9" id="thumb">
             <div class="row">
@@ -115,9 +104,6 @@ session_start();
                         <?php
                             }
                         ?>
-
-                        <!-- <img src="../../../assets/images/detail_book_page/2.jpeg" alt="image 2">
-                        <img src="../../../assets/images/detail_book_page/6.jpeg" alt="image 6"> -->
                     </div>
 
                    
@@ -137,16 +123,15 @@ session_start();
                                 $sum += $row['quality'];
                                 $count++;
                             }
-                            if ($count==0) $avr = 0;
-                            else $avr = (int)($sum/$count);
+                            if ($count==0){
+                                $avr = 0;
+                            } 
+                            else {
+                                $avr = (int)($sum/$count);
+                            }
                         ?>
 
                         <div class="viewrating">
-                            <!-- <span class="fa fa-star fa-1x checked"></span>
-                            <span class="fa fa-star fa-1x checked"></span>
-                            <span class="fa fa-star fa-1x checked"></span>
-                            <span class="fa fa-star fa-1x checked"></span>
-                            <span class="fa fa-star fa-1x"></span> -->
                             <?php
                                 $n = $avr;
                                 $output = "";
@@ -173,49 +158,6 @@ session_start();
 
 
                         <div class="address">
-                            <!-- Delivery to <span>Ho Chi Minh city, VietNam - </span>
-                            <a href="#" data-toggle="modal" data-target="#changeaddress">CHANGE ADDRESS </a> <br>
-
-                            <div class="modal fade" id="changeaddress" tabindex="-1" role="dialog" aria-labelledby="changeaddresstitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="changeaddresstitle">Delivery address</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="city">Province/City</label>
-                                                <select class="form-control" id="city">
-                                                    <option>Ho Chi Minh city</option>
-                                                    <option>Tien Giang</option>
-                                                    <option>Da Nang</option>
-                                                    <option>Quang Ninh</option>
-                                                    <option>Khanh Hoa</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="distrist">District</label>
-                                                <select class="form-control" id="district">
-                                                    <option>District 1</option>
-                                                    <option>District 2</option>
-                                                    <option>District 3</option>
-                                                    <option>District 4</option>
-                                                    <option>District 5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- <div class="form-group"> -->
                             <form action="#" method="post">
                                 <label for="addr">Address delivery</label>
                                 <select class="form-control hidden-city" id="addr" name="address">
@@ -256,34 +198,16 @@ session_start();
                                     <div class="col-md-5">
                                         <input name="add_to_card" type="submit" value="ADD TO CART" class="btn btn-primary btn-add-to-cart" style="margin-top: 8%;">
 
-                                        <!-- <button type="button" class="btn btn-primary" id="btn_add" name="add_to_card">ADD TO CARD</button> -->
                                         <input type='hidden' class='hidden-name' name='hidden_img' value='<?php echo $name_book ?>'/>
                                         <input type='hidden' class='hidden-id' name='hidden_id' value='<?php echo $book_id ?>'/>
                                         <input type='hidden' class='hidden-image' name='hidden_image' value='<?php echo $link ?>'/>
                                         <input type='hidden' class='hidden-price' name='hidden_price' value='<?php echo $price ?>'/>
-                                        <!-- <input type='hidden' class='$hidden_img' name='hidden_img' value='$img'/> -->
                                     </div>
                                     <div class="col-md-2"></div>
                                 </div>
                             
                             </form>
-                            <!-- </div> -->
-
                         </div>
-
-
-
-                        <!-- <div class="line_1"></div> -->
-                        <!-- <div class=row>
-                            <div class="col-md-5">
-                                <span>Quantity</span>
-                                <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
-                            </div>
-                            <div class="col-md-5">
-                                <button type="button" class="btn btn-primary" id="btn_add">ADD TO CARD</button>
-                            </div>
-                            <div class="col-md-2"></div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -306,11 +230,7 @@ session_start();
                            
                             <div class="reviewed">
                                 <h4 style="margin-top: 3%; margin-bottom: 2%;">You're reviewing</h4>
-                                <!-- <h5> <?php //echo $name_cus ?> </h5> -->
                                 <div class="row" style="margin-top: 2%;">
-                                    <!-- <div class="col-md-1">
-                                        <h6>Quality</h6>
-                                    </div>  -->
                                     <div class="col-md-12">
                                         <div class="stars">
                                             <form action="" method="POST">
@@ -335,20 +255,6 @@ session_start();
                                                 <h6>Review</h6>
                                                 </label>
                                                 <textarea class="form-control" id="contentreview" name="content" rows="5"></textarea>
-
-                                                <!-- <h6>Price</h6> -->
-                                                <!-- <br>
-                                                Price <br>
-                                                <input class="star star-1" id="star-11" type="radio" name="star_1" value="6"/>
-                                                <label class="star star-1" for="star-11"></label>
-                                                <input class="star star-2" id="star-22" type="radio" name="star_1" value="7"/>
-                                                <label class="star star-2" for="star-22"></label>
-                                                <input class="star star-3" id="star-33" type="radio" name="star_1" value="8"/>
-                                                <label class="star star-3" for="star-33"></label>
-                                                <input class="star star-4" id="star-44" type="radio" name="star_1" value="9"/>
-                                                <label class="star star-4" for="star-44"></label>
-                                                <input class="star star-5" id="star-55" type="radio" name="star_1" value="10"/>
-                                                <label class="star star-5" for="star-55"></label> -->
 
                                                 <input name="submit" type="submit" value="Submit review" class="btn btn-primary" style="margin-top: 2%;">
                                             </form>
@@ -399,37 +305,12 @@ session_start();
                                                         }
                                                         echo $output;
                                                     ?>
-                                                    <!-- <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x"></span> -->
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 1%;">
                                                 <div class="col-md-3">
                                                 </div>
                                                 <div class="col-md-9">
-
-                                                    <?php
-                                                        // $n = $row['price'];
-                                                        // $output = "";
-                                                        // for ($i=0; $i<$n; $i++){
-                                                        //     $output .= "
-                                                        //     <span class='fa fa-star fa-1x checked'></span>";
-                                                        // }
-                                                        // for ($i=0; $i<5-$n; $i++){
-                                                        //     $output .= "
-                                                        //     <span class='fa fa-star fa-1x'></span>";
-                                                        // }
-                                                        // echo $output;
-                                                    ?>
-
-                                                    <!-- <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x checked"></span>
-                                                    <span class="fa fa-star fa-1x"></span> -->
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom: 1%;">
@@ -461,160 +342,11 @@ session_start();
                                 }
                             ?>
 
-                                <!-- </div> -->
-                                <!-- <div class="row"> -->
-                                    <!-- <div class="col-md-1">
-                                        <h6 style="margin-top: 3%;">Price</h6>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="stars">
-                                            <form action="">
-                                                <input class="star star-1" id="star-11" type="radio" name="star" />
-                                                <label class="star star-1" for="star-11"></label>
-                                                <input class="star star-2" id="star-22" type="radio" name="star" />
-                                                <label class="star star-2" for="star-22"></label>
-                                                <input class="star star-3" id="star-33" type="radio" name="star" />
-                                                <label class="star star-3" for="star-33"></label>
-                                                <input class="star star-4" id="star-44" type="radio" name="star" />
-                                                <label class="star star-4" for="star-44"></label>
-                                                <input class="star star-5" id="star-55" type="radio" name="star" />
-                                                <label class="star star-5" for="star-55"></label>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-9"></div> -->
-                                <!-- </div> -->
-                                <!-- <form>
-                                    <div class="form-group">
-                                        <label for="contentreview">
-                                            <h6>Review</h6>
-                                        </label>
-                                        <textarea class="form-control" id="contentreview" rows="3"></textarea>
-                                    </div>
-                                </form>
-                                <button type="button" class="btn btn-primary" style="margin-top: 2%;">Submit review</button> -->
-                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-md-2" id="listcate">
-            <!-- List categories -->
-            <div class="caterory">
-                <h4>PRODUCT CATERORIES</h4>
-            </div>
-            <div class="line"></div>
-
-            <?php
-                $sql = "SELECT b.category cate, COUNT(b.id) amount FROM categories c, book b WHERE c.category LIKE b.category
-                        GROUP BY b.category";
-                $res = $mysql_db -> query($sql);  
-                while ($row = $res ->fetch_assoc()){
-                   
-            ?>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="../product_page/index.php?category=<?php echo $row['cate'] ?>"> <?php echo ucwords($row['cate']) ?> <span>( <?php echo $row['amount'] ?> )</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <?php
-                }
-            ?>
-        </div>
-            <!-- <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Business <span>(4)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Cookbooks <span>(6)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Health & Fitness <span>(7)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">History <span>(8)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Mystery <span>(9)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Harry Poster <span>(20)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Romance <span>(20)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Humor Books <span>(17)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Land of stories <span>(34)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Toys & Games <span>(3)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="#">Hoodies <span>(3)</span></a>
-                </div>
-                <div class="subline"></div>
-            </div> -->
-      
-        <!-- <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-1">
-                        <p class="sortby">Sort by: </p>
-                    </div>
-                    <div class="col-md-11">
-                        <select class="form-select" aria-label="Default select example" id="selection">
-                            <option selected>Price from low to high</option>
-                            <option value="1">Price from high to low</option>
-                            <option value="2">Most populer</option>
-                            <option value="3">Best seller</option>
-                            <option value="4">Newest</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="item">
-                            <a href=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
     </div>
 </div>
 

@@ -25,30 +25,21 @@
 }
 
 .color-orange {
-    color: #CE7852;
+    color: yellow;
 }
 
 .product-page .sidebar .category li {
     line-height: 45px;
     text-transform: capitalize;
-    border-bottom: 1px dashed #E1E1E1;
 
 }
 
 .product-page .sidebar .category li a {
-    color: #333;
+    color: black;
 }
 
 .product-page .sidebar .category li a:hover {
-    color: #CE7852;
-}
-
-.product-page .sidebar .ads .text {
-    text-align: center;
-    /* top: 120px; */
-    bottom: 30px;
-    left: 0;
-    right: 0;
+    color: red;
 }
 
 .product-page .paginationlist li a {
@@ -73,7 +64,7 @@
 }
 
 .product-list .product-thumbnail .hot-box {
-    background: #cb7a59 none repeat scroll 0 0;
+    background: red none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
     font-size: 10px;

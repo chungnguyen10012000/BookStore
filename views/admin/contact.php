@@ -29,51 +29,6 @@ if (!$_SESSION['id_admin']) {
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 col-12 bg-dark mt-0 min-vh-100 d-flex flex-column">
-                <nav class="left_nav_bar navbar navbar-dark sticky-top" style="top: 60px;">
-                    <ul class="navbar-nav" id="leftNavbar">
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link" href="index.php">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span class="nav-link-text ml-4">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link" href="product.php">
-
-                                <i class="fas fa-book"></i>
-                                <span class="nav-link-text ml-4">Product</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link" href="transaction.php">
-                                <i class="fas fa-money-check-alt"></i>
-                                <span class="nav-link-text ml-4">Transaction</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link" href="customer.php">
-
-                                <i class="fas fa-user-alt"></i>
-
-                                <span class="nav-link-text ml-4">Customer</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link" href="employee.php">
-                                <i class="fas fa-user-friends" aria-hidden="true"></i>
-                                <span class="nav-link-text ml-4">Employee</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="left_bar_link nav-link active" href="contact.php">
-                                <i class="fas fa-comment"></i>
-                                <span class="nav-link-text ml-4">Contact</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
             <div class="col-md-10 col-12">
                 <div class="row">
                     <div class="col-12">

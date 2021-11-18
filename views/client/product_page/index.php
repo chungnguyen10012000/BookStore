@@ -28,25 +28,6 @@ session_start();
         $books = $product->getBooksByKeywordAndOrderByPrice($_GET['keyword'], $_GET['orderbyprice']);
     }
 
-
-    
-    // if (!empty($_GET['orderbyprice'])) {
-    //     $books = $product->getBooksOrderByPrice($_GET['orderbyprice']);
-    // }
-    // if (isset($_GET['category'])) {
-    //     $category = $_GET['category'];
-    //     $books = $product->getBookCategory($category);
-    // } elseif (!empty($_GET['keyword'])) {
-    //     $keyword = $_GET['keyword'];
-    //     echo $keyword;
-    //     $books = $product->search($keyword);
-    // }
-    // elseif (empty($_GET['category']) && empty($_GET['keyword']) && empty($_GET['orderbyprice'])) {
-    //     $books = $product->getData();
-    // }
-    
-    // shuffle($books);
-
     // For pagination
     // Number of items to display in one page
     $no_of_records_per_page = 6;
