@@ -9,7 +9,7 @@ $(document).ready(function () {
         confirmDeleteBtn.click(function () {
             $('#' + id).remove();
             $('#' + id + "collapse").remove();
-            $.post('./post/contact_delete.php',
+            $.post('../post/contact_delete.php',
                 {
                     id: id
                 },

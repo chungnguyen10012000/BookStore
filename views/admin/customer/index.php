@@ -1,8 +1,8 @@
 <?php
-require "../../data/config.php";
+require "../../../data/config.php";
 session_start();
 if (!$_SESSION['id_admin']) {
-    header("Location: login.php");
+    header("Location: ../login/index.php");
 }
 // Get all customer information
 $query = "SELECT * FROM customer";
@@ -22,17 +22,17 @@ while ($item = mysqli_fetch_assoc($result)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
     <!-- Page plugins -->
-    <?php include('./include/stylesheet.php'); ?>
-    <?php include('./include/script.php'); ?>
-    <link rel="stylesheet" href="../../assets/css/admin/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/admin/customer.css">
-    <link rel="stylesheet" href="../../assets/css/admin/index.css">
+    <?php include('../include/stylesheet.php'); ?>
+    <?php include('../include/script.php'); ?>
+    <link rel="stylesheet" href="../../../assets/css/admin/navbar.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/customer.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/index.css">
 </head>
 
 <body style="overflow: unset;">
     <!-- Side bar -->
 
-    <?php include('./navbar.php'); ?>
+    <?php include('../header/index.php'); ?>
 
 
     <div class="container-fluid">
@@ -191,7 +191,7 @@ while ($item = mysqli_fetch_assoc($result)) {
     function deleteCustomer(customer_id, customer_email) {
         if (confirm("DELETE this Customer?")) {
             $.post(
-                "post/customer_func.php", {
+                "../post/customer_func.php", {
                     action: "delete_customer",
                     id: customer_id,
                     email: customer_email
@@ -199,7 +199,7 @@ while ($item = mysqli_fetch_assoc($result)) {
                 function(data, status) {
                     alert(data);
                     if (data == "Delete Customer SUCCESSFULLY!")
-                        window.location.href = "customer.php";
+                        window.location.href = "index.php";
                 }
             );
         }
@@ -216,7 +216,7 @@ while ($item = mysqli_fetch_assoc($result)) {
         var register_at = $("#register_at-edit-" + customer_id).val();
         var active = $("#active-edit-" + customer_id).val();
         $.post(
-            "post/customer_func.php", {
+            "../post/customer_func.php", {
                 action: "edit_customer",
                 id: id,
                 name: name,
@@ -230,7 +230,7 @@ while ($item = mysqli_fetch_assoc($result)) {
             function(data, status) {
                 alert(data);
                 if (data == "Update Customer Information SUCCESSFULLY!")
-                    window.location.href = "customer.php";
+                    window.location.href = "index.php";
             }
         );
     }

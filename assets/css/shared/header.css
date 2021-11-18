@@ -1,6 +1,6 @@
 
 html:not([data-scroll='0']) header {
-    background: #f9f9f9;
+    background: #3eab31;
     box-shadow: 0 10px 100px 0 rgba(0,0,0,0.1);
     border-bottom: 1px solid #d9d9d9;
     transition: all 0.3s ease-out;
@@ -19,7 +19,7 @@ header {
     transition: all 0.5s ease-out;
     overflow-x: hidden;
     /* background-color: transparent; */
-    /* background: #f1f1f1 none repeat scroll 0 0; */
+    background: #1cb1df none repeat scroll 0 0;
     /* backdrop-filter: opacity(0); */
     /* background:rgba(255,255,255,0); */
     -webkit-transition: all 0.5s ease-out;

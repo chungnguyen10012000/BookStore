@@ -1,8 +1,8 @@
 <?php
-require "../../data/config.php";
+require "../../../data/config.php";
 session_start();
 if (!$_SESSION['id_admin']) {
-    header("Location: login.php");
+    header("Location: ../login/index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -14,17 +14,17 @@ if (!$_SESSION['id_admin']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
     <!-- Page plugins -->
-    <?php include('./include/stylesheet.php'); ?>
-    <?php include('./include/script.php'); ?>
-    <link rel="stylesheet" href="../../assets/css/admin/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/admin/dashboard.css">
-    <link rel="stylesheet" href="../../assets/css/admin/index.css">
+    <?php include('../include/stylesheet.php'); ?>
+    <?php include('../include/script.php'); ?>
+    <link rel="stylesheet" href="../../../assets/css/admin/navbar.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/dashboard.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/index.css">
 </head>
 
 <body style="overflow: unset;">
     <!-- Side bar -->
 
-    <?php include('./navbar.php'); ?>
+    <?php include('../header/index.php'); ?>
 
 
     <div class="container-fluid">
@@ -224,8 +224,8 @@ if (!$_SESSION['id_admin']) {
     </div>
 
     <!-- End toast section -->
-    <script src="../../assets/js/admin/edit_profile.js"></script>
-    <script src="../../assets/js/admin/change_password.js"></script>
+    <script src="../../../assets/js/admin/edit_profile.js"></script>
+    <script src="../../../assets/js/admin/change_password.js"></script>
 </body>
 
 </html>

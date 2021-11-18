@@ -29,12 +29,12 @@
                                  <div class="form-group col-md-6" id="formWebsite">
                                      <label for="inputWebsite">Website:</label>
                                      <input type="text" class="form-control" id="inputWebsite"
-                                         placeholder="https://www.facebook.com/user">
+                                         >
                                  </div>
                              </div>
                              <div class="form-group" id="formSubject">
                                  <label for="inputSubject">Subject:</label>
-                                 <input type="text" class="form-control" id="inputSubject" placeholder="Improvement">
+                                 <input type="text" class="form-control" id="inputSubject">
                              </div>
                              <div class="form-group" id="formMessage">
                                  <label for="inputMessage">Type your message here*:</label>
@@ -55,56 +55,16 @@
                  </div>
                  <div class="col-md-4 col-12 my-md-5 my-3">
                      <section class="office_info">
-                         <h3>GET OFFICE INFO:</h3>
-                         <p class="my-md-4 my-3">Clarity is also a dynamic process that results in a change in the usage of readers. It is surprising to note how gothic literature, which we now think a little clear, preferred the literary forms of culture during the fourteenth and fifteenth centuries.</p>
-                         <ul id="infoList" class="list-group">
-                             <li class="list-group-item d-flex flex-row bd-highlight">
-                                 <div class="info_icon">
-                                     <i class="fa fa-address-book" aria-hidden="true">
-                                     </i>
-                                 </div>
-                                 <div class="info_content ml-3">
-                                     <h5>Address: </h5>
-                                     <p>KTX Khu A ĐHQG, Thành phố Hồ Chí Minh
-                                     </p>
-                                 </div>
-
-                             <li class="list-group-item d-flex flex-row bd-highlight">
-                                 <div class="info_icon">
-                                     <i class="fa fa-phone" aria-hidden="true">
-                                     </i>
-                                 </div>
-                                 <div class="info_content ml-3">
-                                     <h5>Phone Number: </h5>
-                                     <p>0971247256</p>
-                                 </div>
-                             </li>
-                             <li class="list-group-item d-flex flex-row bd-highlight">
-                                 <div class="info_icon">
-                                     <i class="fa fa-envelope-o" aria-hidden="true">
-                                     </i>
-                                 </div>
-                                 <div class="info_content ml-3">
-                                     <h5>Email: </h5>
-                                     <p>bookstore@gmail.com</p>
-                                 </div>
-                             </li>
-                             <li class="list-group-item d-flex flex-row bd-highlight">
-                                 <div class="info_icon">
-                                     <i class="fa fa-cloud" aria-hidden="true">
-                                     </i>
-                                 </div>
-                                 <div class="info_content ml-3">
-                                     <h5>Website: </h5>
-                                     <a id="linkWeb" href="https://mybk.hcmut.edu.vn/">
-                                         https://bookstore.com.vn/
-                                     </a>
-
-                                 </div>
-                             </li>
-
-
-                         </ul>
+                         <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fa fa-home me-3"></i> Q.3, HCM, VN</p>
+            <p>
+              <i class="fa fa-envelope me-3"></i>
+              bookstore@example.com
+            </p>
+            <p><i class="fa fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fa fa-print me-3"></i> + 01 234 567 89</p>
                      </section>
 
                  </div>

@@ -74,9 +74,8 @@
 <body>
     <div class="container row">
         <div class="col-10 col-md-6 col-lg-7">
-            <div class="logo">
-                <img class="logo-img" src="../../../assets/images/header/logo.png" alt="logo">
-                <p class="title">Login to purchase your order!</p> 
+            <div class="title">
+                <h1>Login</h1> 
             </div>
             <div class="form-login">
                 <form action="login.php" method="post">

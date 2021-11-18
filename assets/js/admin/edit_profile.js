@@ -3,7 +3,7 @@ $(document).ready(function () {
     var confirmProfileBtn = modal.find('.modal-footer #confirmProfileBtn')
     confirmProfileBtn.click(function () {
         modal.find('.warning_error').remove();
-        $.post("./post/profile_edit.php",
+        $.post("../post/profile_edit.php",
             {
                 userName: $('#inputUserName').val(),
                 firstName: $('#inputFirstName').val(),

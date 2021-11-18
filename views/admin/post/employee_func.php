@@ -1,5 +1,5 @@
 <?php
-    $action = isset($_POST['action']) ? $_POST['action'] : "";;
+    $action = isset($_POST['action']) ? $_POST['action'] : "";
 
     require_once "../../../data/config.php";
 

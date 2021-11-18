@@ -30,19 +30,19 @@
                         <a href="#"><i class="far fa-heart"></i></a>
                     </li> -->
                     <li class="shop_cart">
-                        <a href="../cart/index.php" class="btn btn-info" style="margin-left: 10px"><i class="fas fa-cart-plus"></i></a>
+                        <a href="../cart/index.php" class="btn btn-danger" style="margin-left: 10px"><i class="fas fa-cart-plus"></i></a>
                     </li>
                     <?php 
                         // print "<script>alert('ac')</script>";
                       
                         if (!empty($_SESSION['email'])) {
                             print "<li class='shop_cart'>
-                                        <a href='../account_page/index.php' class=\"btn btn-info\"><i class='fa fa-user'></i></a>
+                                        <a href='../account_page/index.php' class=\"btn btn-danger\"><i class='fa fa-user'></i></a>
                                     </li>";
                         }
                         else {
                             print "<li class='shop_cart'>
-                                        <a href='../authenticate/login.php' class=\"btn btn-info\"><i class='fa fa-sign-in'></i></a>
+                                        <a href='../authenticate/login.php' class=\"btn btn-danger\"><i class='fa fa-sign-in'></i></a>
                                     </li>";
                         }
                     ?>

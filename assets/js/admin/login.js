@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#loginBtn').click(function () {
         $('.warning_email').remove();
-        $.post('./post/valid_login.php',
+        $.post('../post/valid_login.php',
             {
                 user_name: $('#user_name').val(),
                 password: $('#password').val(),

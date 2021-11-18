@@ -4,9 +4,9 @@ session_start();
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 <?php
-require "../../data/config.php";
+require "../../../data/config.php";
 if (!$_SESSION['id_admin']) {
-    header("Location: login.php");
+    header("Location: ../login/index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -18,10 +18,10 @@ if (!$_SESSION['id_admin']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
     <!-- Page plugins -->
-    <?php include('./include/stylesheet.php'); ?>
-    <?php include('./include/script.php'); ?>
-    <link rel="stylesheet" href="../../assets/css/admin/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/admin/index.css">
+    <?php include('../include/stylesheet.php'); ?>
+    <?php include('../include/script.php'); ?>
+    <link rel="stylesheet" href="../../../assets/css/admin/navbar.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/index.css">
     <style>
         *:focus {
             outline: 0 !important;
@@ -40,7 +40,7 @@ if (!$_SESSION['id_admin']) {
 <body style="overflow: unset;">
     <!-- Side bar -->
 
-    <?php include('./navbar.php'); ?>
+    <?php include('../header/index.php'); ?>
 
 
     <div class="container-fluid">
@@ -123,7 +123,7 @@ if (!$_SESSION['id_admin']) {
                                             </td>
                                             
                                             <td>
-                                                <img src="<?php echo str_replace('../../../', '../../', $row['link_image']); ?>" alt="" style="width: 120px; background-color: transparent;">
+                                                <img src="<?php echo str_replace('../../../../', '../../../', $row['link_image']); ?>" alt="" style="width: 120px; background-color: transparent;">
                                             </td>                                            
 
                                             <td><button class="btn btn-info" data-toggle="collapse" 
@@ -414,7 +414,7 @@ if (!$_SESSION['id_admin']) {
             // alert(author);
             // alert(id + " " + name + " "+ author +" "+ category +" "+ price +" "+ description+" "+image);
             $.post(
-                "post/book_function.php", {
+                "../post/book_function.php", {
                     action: "edit_book",
                     id,
                     name,
@@ -426,7 +426,7 @@ if (!$_SESSION['id_admin']) {
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Change book information successfully!") window.location.href = "product.php";
+                    if (data == "Change book information successfully!") window.location.href = "index.php";
                 }
             );
         }
@@ -434,13 +434,13 @@ if (!$_SESSION['id_admin']) {
         
         function deleteBook(book_id) {
             $.post(
-                "post/book_function.php", {
+                "../post/book_function.php", {
                     action: "delete_book",
                     id: book_id
                 },
                 function(data, status) {
                     alert(data);        
-                    if (data == "Delete book successfully!") window.location.href = "product.php";
+                    if (data == "Delete book successfully!") window.location.href = "index.php";
                 }
             );
         }
@@ -456,7 +456,7 @@ if (!$_SESSION['id_admin']) {
             author = author.split(', ');
             // alert('abc');
             $.post(
-                "post/book_function.php", {
+                "../post/book_function.php", {
                     action: "add_book",
                     name,
                     author,
@@ -467,7 +467,7 @@ if (!$_SESSION['id_admin']) {
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Add new book successfully!") window.location.href = "product.php";
+                    if (data == "Add new book successfully!") window.location.href = "index.php";
                 }
             );
         }
@@ -478,14 +478,14 @@ if (!$_SESSION['id_admin']) {
             let customer_id = id_arr[1];
             alert(book_id);
             $.post(
-                "post/book_function.php", {
+                "../post/book_function.php", {
                     action: "delete_review",
                     book_id,
                     customer_id
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Delete review successfully!") window.location.href = "product.php";
+                    if (data == "Delete review successfully!") window.location.href = "index.php";
                 }
             );
 

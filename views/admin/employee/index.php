@@ -1,8 +1,8 @@
 <?php
-require "../../data/config.php";
+require "../../../data/config.php";
 session_start();
 if (!$_SESSION['id_admin']) {
-    header("Location: login.php");
+    header("Location: ../login/index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -14,17 +14,17 @@ if (!$_SESSION['id_admin']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin page</title>
     <!-- Page plugins -->
-    <?php include('./include/stylesheet.php'); ?>
-    <?php include('./include/script.php'); ?>
-    <link rel="stylesheet" href="../../assets/css/admin/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/admin/index.css">
+    <?php include('../include/stylesheet.php'); ?>
+    <?php include('../include/script.php'); ?>
+    <link rel="stylesheet" href="../../../assets/css/admin/navbar.css">
+    <link rel="stylesheet" href="../../../assets/css/admin/index.css">
 
 </head>
 
 <body style="overflow: unset;">
     <!-- Side bar -->
 
-    <?php include('./navbar.php'); ?>
+    <?php include('../header/index.php'); ?>
 
 
     <div class="container-fluid">
@@ -261,7 +261,7 @@ if (!$_SESSION['id_admin']) {
             var insta = document.getElementById("insta-edit-" + employ_id).value;
             //console.log(id + " " + fname + " "+work+" "+avatar+" "+face+" "+twitter+" "+insta);
             $.post(
-                "post/employee_func.php", {
+                "../post/employee_func.php", {
                     action: "edit_employee",
                     id: id,
                     fname: fname,
@@ -273,7 +273,7 @@ if (!$_SESSION['id_admin']) {
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Change employee information successfully!") window.location.href = "employee.php";
+                    if (data == "Change employee information successfully!") window.location.href = "index.php";
                 }
             );
         }
@@ -281,13 +281,13 @@ if (!$_SESSION['id_admin']) {
         // delete employee
         function deleteEmployee(employ_id) {
             $.post(
-                "post/employee_func.php", {
+                "../post/employee_func.php", {
                     action: "delete_employee",
                     id: employ_id
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Delete employee information successfully!") window.location.href = "employee.php";
+                    if (data == "Delete employee information successfully!") window.location.href = "index.php";
                 }
             );
         }
@@ -301,7 +301,7 @@ if (!$_SESSION['id_admin']) {
             var twitter = document.getElementById("twitter").value;
             var insta = document.getElementById("insta").value;
             $.post(
-                "post/employee_func.php", {
+                "../post/employee_func.php", {
                     action: "add_employee",
                     fname: fname,
                     work: work,
@@ -312,7 +312,7 @@ if (!$_SESSION['id_admin']) {
                 },
                 function(data, status) {
                     alert(data);
-                    if (data == "Add employee information successfully!") window.location.href = "employee.php";
+                    if (data == "Add employee information successfully!") window.location.href = "index.php";
                 }
             );
         }

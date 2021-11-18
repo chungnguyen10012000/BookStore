@@ -1,9 +1,9 @@
 <!-- Side bar -->
 <?php
-    require "../../data/config.php";
+    require "../../../data/config.php";
     session_start();
     if (!$_SESSION['id_admin']) {
-        header("Location: login.php");
+        header("Location: ../login/index.php");
     }
     $query = "select avatar from admin WHERE id= '" . $_SESSION['id_admin'] . "'";
     $result = $mysql_db->query($query);
@@ -25,19 +25,19 @@
                     <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active" >
-                    <a class="nav-link" href="product.php">Product <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../product/index.php">Product <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active" >
-                    <a class="nav-link" href="transaction.php">Transaction <span class="sr-only"></span></a>
+                    <a class="nav-link" href="../transaction/index.php">Transaction <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active" >
-                    <a class="nav-link" href="customer.php">Customer <span class="sr-only"></span></a>
+                    <a class="nav-link" href="../customer/index.php">Customer <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active" >
-                    <a class="nav-link" href="employee.php">Employee <span class="sr-only"></span></a>
+                    <a class="nav-link" href="../employee/index.php">Employee <span class="sr-only"></span></a>
                 </li>
                 <li class="nav-item active" >
-                    <a class="nav-link" href="contact.php">Contact <span class="sr-only"></span></a>
+                    <a class="nav-link" href="../contact/index.php">Contact <span class="sr-only"></span></a>
                 </li>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +49,7 @@
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="./logout.php">
+                        <a class="dropdown-item" href="../logout/index.php">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-link-text">Logout</span>
                         </a>

@@ -159,36 +159,6 @@ session_start();
 
                         <div class="address">
                             <form action="#" method="post">
-                                <label for="addr">Address delivery</label>
-                                <select class="form-control hidden-city" id="addr" name="address">
-                                    <option>An Giang</option>
-                                    <option>Bac Ninh</option>
-                                    <option>Ben Tre</option>
-                                    <option>Ca Mau</option>
-                                    <option>Can Tho</option>
-                                    <option>Da Nang</option>
-                                    <option>Dong Nai</option>
-                                    <option>Ha Noi</option>
-                                    <option>Khanh Hoa</option>
-                                    <option>Kien Giang</option>
-                                    <option>Long An</option>
-                                    <option>Nam Dinh</option>
-                                    <option>Nghe An</option>
-                                    <option>Ninh Binh</option>
-                                    <option>Quang Binh</option>
-                                    <option>Quang Nam</option>
-                                    <option>Quang Ngai</option>
-                                    <option>Thanh Hoa</option>
-                                    <option>Tien Giang</option>
-                                    <option selected="selected">TP Ho Chi Minh</option>
-                                    <option>Tra Vinh</option>
-                                    <option>Vinh Long</option>
-                                    <option>Vinh Phuc</option>
-                                    <option>Yen Bai</option>
-                                </select>
-                                <br>
-                                <p>Ship charges: <span>$2</span></p>
-                                <div class="line_1"></div>
 
                                 <div class=row>
                                     <div class="col-md-5">
