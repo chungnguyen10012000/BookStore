@@ -8,7 +8,7 @@
     <div class="container-fluid">
 
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="../home_page/index.php"><img src="../../../assets/images/header/Logo.jpg"
+            <a class="navbar-brand" href="../home_page/index.php"><img src="../../../assets/images/book/main.png"
                     alt="" class="logo"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
