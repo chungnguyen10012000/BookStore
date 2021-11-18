@@ -23,7 +23,7 @@
             <div class="navbar-nav ml-auto">
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle" alt="Image placeholder" src=<?php echo $row['avatar'] ?> width="30" height="30">
+                        <img id="linkAvatar" class="rounded-circle" alt="Image placeholder" src=<?php echo $row['avatar'] ?> width="30" height="30">
                         <span class="mb-0" style="color: aliceblue;" id="topLeftName">
                             <?php
                             echo $_SESSION["first_name"];

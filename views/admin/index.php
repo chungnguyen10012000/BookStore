@@ -128,7 +128,7 @@ if (!$_SESSION['id_admin']) {
 
                         </div>
                         <div class="col d-flex justify-content-center my-3">
-                            <button class="btn-primary mx-3" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
+                            <button class="btn btn-primary mx-3" data-toggle="modal" data-target="#profileModal">Edit Profile</button>
                             <button class="btn btn-success mr-2" data-toggle="modal" data-target="#passwordModal" ?>Change
                                 Password</button>
                         </div>
@@ -149,7 +149,7 @@ if (!$_SESSION['id_admin']) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form onsubmit="return false;">
                         <div class="form-group row">
                             <label for="inputUserName" class="col-sm-2 col-form-label font-weight-bold">Username</label>
                             <div class="col-sm-10" id="formUserName">
@@ -164,15 +164,15 @@ if (!$_SESSION['id_admin']) {
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="k" class="col-sm-2 col-form-label font-weight-bold">Last Name</label>
-                            <div class="col-sm-10" id="formK">
-                                <input type="text" class="form-control" id="inputK" value="<?php echo $row['last_name']; ?>">
+                            <label for="inputLastName" class="col-sm-2 col-form-label font-weight-bold">Last Name</label>
+                            <div class="col-sm-10" id="formLastName">
+                                <input type="text" class="form-control" id="inputLastName" value="<?php echo $row['last_name']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputLastName" class="col-sm-2 col-form-label font-weight-bold">Avatar</label>
+                            <label for="inputAvatar" class="col-sm-2 col-form-label font-weight-bold">Avatar</label>
                             <div class="col-sm-10" id="formLastName">
-                                <input type="text" class="form-control" id="inputLastName" value="<?php echo $row['avatar']; ?>">
+                                <input type="text" class="form-control" id="inputAvatar" value="<?php echo $row['avatar']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">

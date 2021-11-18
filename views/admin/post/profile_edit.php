@@ -37,7 +37,11 @@ function validLastName($data)
 {
     if (empty($data)) {
         return "Last Name is required";
-    } 
+    } else {
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $data)) {
+            return "Only letters and white space allowed";
+        }
+    }
     return '';
 }
 function validEmail($data)
@@ -108,21 +112,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     );
     $message['userName'] = validUserName($_POST['userName']);
     $message['firstName'] = validFirstName($_POST['firstName']);
-    
+    $message['lastName'] = validFirstName($_POST['lastName']);
     $message['email'] = validEmail($_POST['email']);
     $message['phone'] = validPhone($_POST['phone']);
     $message['birthday'] = validBirthday($_POST['birthday']);
-    if ($message['userName'] || $message['firstName'] ||   $message['email'] || $message['phone'] || $message['birthday']) 
+    if ($message['userName'] || $message['firstName'] ||   $message['email'] || $message['phone'] || $message['birthday'] || $message['lastName']) 
     {
         $message['success'] = false;
     } else {
         $query = "update admin set 
         user_name = '" . $_POST['userName'] . "' , 
         first_name = '" . $_POST['firstName'] . "' , 
+        last_name = '" . $_POST['lastName'] . "' , 
         email = '" . $_POST['email'] . "' ,
         phone = '" . $_POST['phone'] . "' ,
         birthdate = '" . $_POST['birthday'] . "' ,
-        avatar = '" . $_POST['lastName'] . "'
+        avatar = '" . $_POST['avatar'] . "'
         where id='" . $_SESSION['id_admin'] . "'  
         ";
         $result = $mysql_db->query($query);

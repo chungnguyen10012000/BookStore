@@ -8,7 +8,7 @@ $(document).ready(function () {
                 userName: $('#inputUserName').val(),
                 firstName: $('#inputFirstName').val(),
                 lastName: $('#inputLastName').val(),
-                nameX: $('#inputK').val(),
+                avatar: $('#inputAvatar').val(),
                 email: $('#inputEmail').val(),
                 phone: $('#inputPhone').val(),
                 birthday: $('#inputBirthday').val()
@@ -20,7 +20,9 @@ $(document).ready(function () {
                     console.log(data)
                     $("#topLeftName").text($('#inputFirstName').val());
                     $("#tableProfile").load(window.location.href + " #tableProfile > *");
+                    $("#linkAvatar").attr("src", $('#inputAvatar').val());
                     modal.modal('hide');
+
 
                 }
                 else {
