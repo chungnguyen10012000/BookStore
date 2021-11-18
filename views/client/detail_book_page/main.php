@@ -330,13 +330,10 @@ session_start();
             let price = $('.hidden-price').val();
             let image = $('.hidden-image').val();
             let quantity = $('.hidden-quantity').val();
-            let city = $('.hidden-city').val();
-            // alert(image);
-            // alert(city);
             $.ajax({
                 type: 'POST',
                 url: "../cart/process-cart.php",
-                data: { id, name, price, image, quantity, city },
+                data: { id, name, price, image, quantity },
                 success: function(mesg){
                     if (mesg == 'error') {                      
                         return;
@@ -350,7 +347,8 @@ session_start();
                         "timeOut": 2000,
                         "extendedTimeOut": 1000
                     }
-                toastr.success('Add product to cart successfully');             
+                toastr.success('Add product to cart successfully');   
+                console.log(mesg)          
                 }  
             })                   
 

@@ -1,33 +1,3 @@
-<!-- <link rel="stylesheet" href="../../../assets/css/about_page/main.css"> -->
-
-<?php 
-    
-    //echo $_SERVER["REQUEST_METHOD"];
-    if (!empty($_GET['action']) && $_GET['action']  == 'delete') {
-        $id = $_GET['id'];
-        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-
-        $cart_data = json_decode($cookie_data, true); 
-        $index = array_search($id,array_column($cart_data,"item_id"));
-        array_splice($cart_data, $index, 1);
-        // echo var_dump($cart_data);
-        // echo json_encode($cart_data);        
-        if (count($cart_data) == 0) {
-            setcookie('shopping_cart', '' , time() - 3600, '/');
-            header("location: index.php");
-        }
-        else {
-            $item_data = json_encode($cart_data, JSON_UNESCAPED_UNICODE);
-            setcookie('shopping_cart', $item_data, time() + (86400 * 30), '/');
-        }
-    }
-
-    // if (empty($_COOKIE['shopping_cart']) || count($_COOKIE['shopping_cart']) == 0) {
-    //     print "<script>$('.cart-info').css('display', 'none')</script>";
-    // }
-
-?>
-
 <div class="cart-main-area">
     <div class="container">
     <?php
@@ -59,7 +29,8 @@
                                     }
                                     $total = 0;
                                     $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-                                    $cart_data = json_decode($cookie_data, true); 
+                                    $cart_data = json_decode($cookie_data,true,512,JSON_UNESCAPED_UNICODE); 
+                                    //var_dump($cart_data);
                                     $address = '';      
                                     $id_arr = 'a';                             
                                     foreach($cart_data as $keys => $values) {
@@ -69,20 +40,16 @@
                                         $product_price_class = 'product-price-' . $id;
                                         $product_quantity_class = 'product-quantity-' .$id;
                                         $product_total_class = 'product-total-' . $id;                                        
-                                        if ($values['item_city'] != '') {
-                                            $address = $values['item_city'];
-                                        }
                             ?>
                                 <tr>
                                     <td class="product-thumbnail">
-                                        <a href="https://demo.hasthemes.com/boighor-preview/boighor/cart.html#">
                                         <img class="product-imgage" src="<?php echo $values["item_image"]; ?>" alt="product img"></a>
                                     </td>
                                     <td class="<?php echo $product_name_class ?>"><?php echo $values["item_name"]; ?></td>
                                     <td class="<?php echo $product_price_class ?>">$ <?php echo $values["item_price"]; ?></td>
                                     <td ><input id="quantity" class="<?php echo $product_quantity_class ?> quantity" data-id="<?php echo $values["item_id"]; ?>" type="number" value="<?php echo $values["item_quantity"]; ?>"></td>
                                     <td class="<?php echo $product_total_class ?>">$ <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
-                                    <td class="product-remove"><a href="index.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
+                                    <td class="product-remove"><a style="border: solid;" href="process-delete.php?action=delete&id=<?php echo $values["item_id"]; ?>" ><span class="text-danger">Remove</span></a></td>
                                 </tr>
                                 <?php	
                                     $total += number_format($values["item_quantity"] * $values["item_price"], 2);
@@ -90,9 +57,7 @@
                                 ?>
                                 <tr>
                                     <td class="value-order" colspan="6" align="right">
-                                        <p class="total-cost-product">Book cost: $<?php echo number_format($total, 2); ?><p>
-                                        <p>Ship cost: $2</p>
-                                        <p class="total-cost">Total: $<?php  echo number_format($total + 2, 2);?></p>
+                                        <p class="total-cost">Total: $<?php  echo number_format($total, 2);?></p>
                                     </td>
                                 </tr>
                             <?php
@@ -109,15 +74,11 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="cartbox__btn">   
-                        <div class="form-group">
-                            <label class="address-label">Address: </label>
-                            <input class="form-control" type="text" value="<?php echo $address ?>">
-                            <input class="user-id" type="hidden" value="<?php echo $user_id ?>">
-                        </div>    
-                        <div class="action-btn">
-                            <button class="update-btn <?php echo $id_arr; ?>">Update Cart</button>
-                            <button class="checkout-btn <?php echo $id_arr; ?>">Check Out</button>
+                    <div class="cartbox__btn ">    
+                        <div class="action-btn mx-auto">
+                            <button class="btn btn-success update-btn <?php echo $id_arr; ?>">Update Cart</button>
+                            <input value=<?php echo $user_id?> type="hidden" id="userId">
+                            <button class="btn btn-success checkout-btn <?php echo $id_arr; ?>">Check Out</button>
                         </div>           
 			        </div>
                 </form>    
@@ -147,7 +108,7 @@
 
     $('.update-btn').click(function(event) {
         
-        let ids = this.className.split(' ')[1];
+        let ids = this.className.split(' ')[3];
         ids = ids.split('-');
         ids.shift();
         let total = 0;
@@ -168,14 +129,14 @@
 
     $('.checkout-btn').click(function(event) {
         
-        let user_id = $('.user-id').val();
+        let user_id = $('#userId').val();
         //alert(user_id);
         if (user_id == '') {
             alert('You have not loged in yet! Please login to purchase this order.');
             return false;
         }
 
-        let ids = this.className.split(' ')[1];
+        let ids = this.className.split(' ')[3];
         ids = ids.split('-');
         ids.shift();
         let total_cost = $('.total-cost').text();
@@ -185,7 +146,8 @@
         let quantities = [];
         for (i = 0; i < ids.length; ++i) {
             quantities.push($('.product-quantity-'+ids[i]).val());
-        }         
+        }   
+        //console.log({ ids, quantities, user_id, total_cost })      
         
         $.ajax({
             type: 'POST',
@@ -196,7 +158,9 @@
                     return;
                 } 
                 alert("Purchase SUCCESSFULLY");  
-                location.reload();                 
+                console.log(mesg);
+                location.reload();
+
             }                                         
         });    
 

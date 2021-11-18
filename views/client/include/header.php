@@ -58,7 +58,7 @@
                         <a class="nav-link" href="../home_page/index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../product_page/index.php">Book</a>
+                        <a class="nav-link" href="../product_page/index.php">Product</a>
                     </li>           
 
                     <li class="nav-item">
