@@ -5,13 +5,14 @@
 }
 
 .title_all_product .color_theme {
-    color: #ce7852;
+    color: black;
 }
 
 .title_all_product {
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
+    color: black;
 }
 
 .all_products .container .product_text {
@@ -52,7 +53,7 @@
 
 .book_tag .product_nav a.active,
 .book_tag .product_nav a:hover {
-    color: #ce7852;
+    color: red;
 }
 
 .book_tag .product_nav .nav-link {

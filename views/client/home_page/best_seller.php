@@ -57,15 +57,6 @@
                                                     <li>$$price_1</li>                                    
                                                 </ul>
                                             </div>
-                                            <div class='action'>
-                                                <div class='actions_inner'>
-                                                    <ul class='add_to_links'>
-                                                        <li><a class='cart'
-                                                                href='https://demo.hasthemes.com/boighor-preview/boighor/cart.html'><i
-                                                                    class='fas fa-cart-plus'></i></a></li>                                                       
-                                                    </ul>
-                                                </div>
-                                            </div>
                                             <div class='book_rate'>
                                                 <ul class='rating d-flex'>";                                                
                                                     $id = $row[$i][0];                                                    
@@ -97,15 +88,6 @@
                                                 <ul class='price d-flex'>
                                                     <li>$$price_2</li>                                       
                                                 </ul>
-                                            </div>
-                                            <div class='action'>
-                                                <div class='actions_inner'>
-                                                    <ul class='add_to_links'>
-                                                        <li><a class='cart'
-                                                                href='https://demo.hasthemes.com/boighor-preview/boighor/cart.html'><i
-                                                                    class='fas fa-cart-plus'></i></a></li>
-                                                    </ul>
-                                                </div>
                                             </div>
                                             <div class='book_rate'>
                                                 <ul class='rating d-flex'>";
@@ -180,15 +162,6 @@
                                                         <li>$$price_1</li>                                    
                                                     </ul>
                                                 </div>
-                                                <div class='action'>
-                                                    <div class='actions_inner'>
-                                                        <ul class='add_to_links'>
-                                                            <li><a class='cart'
-                                                                    href='https://demo.hasthemes.com/boighor-preview/boighor/cart.html'><i
-                                                                        class='fas fa-cart-plus'></i></a></li>                                                            
-                                                        </ul>
-                                                    </div>
-                                                </div>
                                                 <div class='book_rate'>
                                                     <ul class='rating d-flex'>";                                                
                                                         $id = $products[$i][0];                                                    
@@ -220,15 +193,6 @@
                                                     <ul class='price d-flex'>
                                                         <li>$$price_2</li>                                       
                                                     </ul>
-                                                </div>
-                                                <div class='action'>
-                                                    <div class='actions_inner'>
-                                                        <ul class='add_to_links'>
-                                                            <li><a class='cart'
-                                                                    href='https://demo.hasthemes.com/boighor-preview/boighor/cart.html'><i
-                                                                        class='fas fa-cart-plus'></i></a></li>                                                            
-                                                        </ul>
-                                                    </div>
                                                 </div>
                                                 <div class='book_rate'>
                                                     <ul class='rating d-flex'>";

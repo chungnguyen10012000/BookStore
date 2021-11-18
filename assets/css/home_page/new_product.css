@@ -5,7 +5,7 @@
 }
 
 .title_new_product .color_theme {
-    color: #ce7852;
+    color: black;
     
 }
 
@@ -14,6 +14,7 @@
     text-align: center;
     font-weight: 700;
     margin-bottom: 2rem;
+    color: black;
 }
 
 .new_product .container .product_text {
@@ -76,6 +77,6 @@ button:focus {
 }
 
 [class^="btn-add-cart-"]:hover {
-    background-color: #ce7852;
+    background-color: #52ce82;
     border-radius: 50%;
 }
