@@ -15,7 +15,7 @@
     }
 
     function editEmployee($mysql_db,$id,$fname,$work,$avatar,$face,$twitter,$insta){
-        $sql = "UPDATE employee SET full_name='$fname', work_as='$work', image='$avatar', link_facebook = '$face',
+        $sql = "UPDATE employee SET name='$fname', role='$work', image='$avatar', link_facebook = '$face',
                 link_twitter='$twitter', link_instagram='$insta' WHERE id = $id ";
         $res = $mysql_db -> query($sql);
         if ($res) echo "Change employee information successfully!";
@@ -46,7 +46,7 @@
     }
 
     function addEmployee($mysql_db,$fname,$work,$avatar,$face,$twitter,$insta){
-        $sql = "INSERT INTO employee(full_name,work_as,image,link_facebook,link_twitter,link_instagram) 
+        $sql = "INSERT INTO employee(name,role,image,link_facebook,link_twitter,link_instagram) 
                 VALUES ('$fname', '$work', '$avatar','$face','$twitter', '$insta') ";
         $res = $mysql_db -> query($sql);
         if ($res) echo "Add employee information successfully!";

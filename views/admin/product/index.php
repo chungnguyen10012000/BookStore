@@ -87,7 +87,7 @@ if (!$_SESSION['id_admin']) {
                                         $res = $mysql_db->query($sql);
                                         $book = array();
                                         while ($row = $res->fetch_assoc()) {
-                                            array_push($book, array($row['id'], $row['name'], $row['category'], $row['price'], $row['description'], $row['image'], $row['released'], $row['is_bestseller']));
+                                            array_push($book, array($row['id'], $row['name'], $row['category'], $row['price'], $row['description'], $row['image'], $row['released'], $row['is_top']));
 
                                         ?>
 

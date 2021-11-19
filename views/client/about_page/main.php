@@ -41,8 +41,8 @@
                          <img class="card-img-top img-fluid" src=<?php echo "../../../" . $row['image']; ?>
                              alt="A team member">
                          <div class="card-body">
-                             <h5 class="card-title"><?php echo $row['full_name']; ?></h5>
-                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row['work_as']; ?></h6>
+                             <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row['role']; ?></h6>
                              <nav id="nav_member">
                                  <a href=<?php echo $row["link_twitter"]; ?> class="card-link"><i
                                          class="fab fa-twitter"></i></a>

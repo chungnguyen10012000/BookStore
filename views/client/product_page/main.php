@@ -32,7 +32,7 @@
                             <div class="product-thumbnail">
                                 <a href="../detail_book_page/index.php?id=<?php echo $book['id']; ?>"><img style="max-height: 210px;" src="<?php echo $book['image'] ?>" alt="product<?php echo $book['id']; ?>" class="img-fluid">
                                 </a>
-                                <div class="hot-box" <?php if ($book['is_bestseller'] == 0) echo "hidden"; ?>>
+                                <div class="hot-box" <?php if ($book['is_top'] == 0) echo "hidden"; ?>>
                                     <span class="hot-label">TOP</span>
                                 </div>
                             </div>

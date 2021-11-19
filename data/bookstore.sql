@@ -63,14 +63,14 @@ CREATE TABLE `book` (
   `description` longtext DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `released` date DEFAULT NULL,
-  `is_bestseller` int(1) DEFAULT 0
+  `is_top` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `name`, `category`, `price`, `description`, `image`, `released`, `is_bestseller`) VALUES
+INSERT INTO `book` (`id`, `name`, `category`, `price`, `description`, `image`, `released`, `is_top`) VALUES
 (1, 'Nhập môn kỹ thuật hoá học', 'hoá học', 120, 'Nhập môn Kỹ thuật Hóa học (Công cụ cho hôm nay và ngày mai) chủ yếu được biên soạn theo tài liệu tham khảo nổi tiếng trên thế giới về Nhập môn Kỹ thuật Hóa học (Introduction to Chemical Engineering) và dựa trên kinh nghiệm giảng dạy nhiều năm môn Nhập môn Kỹ thuật (Introduction to Engineering).', '../../../assets/images/book/NhapMonKyThuatHoaHoc.png', '2020-04-27', 1),
 (2, 'Cơ sở khoa học vật liệu', 'hoá học', 93, 'Cuốn sách “CƠ SỞ KHOA HỌC VẬT LIỆU” nhằm đáp ứng yêu cầu nâng cao chất lượng dạy và học của cán bộ và sinh viên Khoa Công nghệ Vật liệu cũng như các ngành học liên quan. Nội dung chính của cuốn sách theo đề cương môn học cùng tên trong chương trình đào tạo.', '../../../assets/images/book/CoSoKhoaHocVatLieu.png', '2021-05-28', 1),
 (3, 'Hoá học và hoá lý polime', 'hoá học', 27, '“HÓA HỌC VÀ HÓA LÝ POLYME” được biên soạn nhằm giúp ích cho việc học tập của sinh viên ngành Hóa trường Đại học Bách khoa TPHCM và sinh viên các trường kỹ thuật, các nhà chuyên môn', '../../../assets/images/book/HoaHocVaHoaLyPolime.png', '2020-10-01', 0),
@@ -147,8 +147,8 @@ INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `birthdate`, `registered
 
 CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
-  `full_name` varchar(40) DEFAULT NULL,
-  `work_as` varchar(20) DEFAULT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `role` varchar(20) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `link_facebook` varchar(100) DEFAULT NULL,
   `link_twitter` varchar(100) DEFAULT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`id`, `full_name`, `work_as`, `image`, `link_facebook`, `link_twitter`, `link_instagram`) VALUES
+INSERT INTO `employee` (`id`, `name`, `role`, `image`, `link_facebook`, `link_twitter`, `link_instagram`) VALUES
 (1, 'Nguyen Van Chung', 'Co-founder', '/assets/images/about/avatar1.jpg', 'https://www.facebook.com', 'https://twitter.com', 'https://www.instagram.com'),
 (2, 'Pham Cong Bach', 'Co-founder', '/assets/images/about/avatar2.jpg', 'https://www.facebook.com', 'https://twitter.com', 'https://www.instagram.com'),
 (3, 'XXX', 'Manager', '/assets/images/about/avatar3.jpg', 'https://www.facebook.com', 'https://twitter.com', 'https://www.instagram.com'),
@@ -169,19 +169,19 @@ INSERT INTO `employee` (`id`, `full_name`, `work_as`, `image`, `link_facebook`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `image_foto`
+-- Table structure for table `book_image`
 --
 
-CREATE TABLE `image_foto` (
+CREATE TABLE `book_image` (
   `book_id` int(11) NOT NULL,
   `link` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `image_foto`
+-- Dumping data for table `book_image`
 --
 
-INSERT INTO `image_foto` (`book_id`, `link`) VALUES
+INSERT INTO `book_image` (`book_id`, `link`) VALUES
 (1, '../../../assets/images/book/NhapMonKyThuatHoaHoc.png'),
 (2, '../../../assets/images/book/CoSoKhoaHocVatLieu.png'),
 (3, '../../../assets/images/book/HoaHocVaHoaLyPolime.png'),
@@ -417,9 +417,9 @@ ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `image_foto`
+-- Indexes for table `book_image`
 --
-ALTER TABLE `image_foto`
+ALTER TABLE `book_image`
   ADD PRIMARY KEY (`book_id`,`link`);
 
 --

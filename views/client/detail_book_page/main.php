@@ -95,7 +95,7 @@ session_start();
                 <div class="col-md-6">
                     <div class="fotorama" data-nav="thumbs">    
                         <?php
-                            $sql = "SELECT link from image_foto where book_id = $book_id";
+                            $sql = "SELECT link from book_image where book_id = $book_id";
                             $res = $mysql_db -> query($sql);
                             while ($row = $res -> fetch_assoc()){
                         ?>
