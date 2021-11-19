@@ -109,7 +109,7 @@ if (!$_SESSION['id_admin']) {
                                                                                     <td>
 
                                                                                         <?php
-                                                                                        $sql = "select name, link_image, price, category from book where id = '" . $row2['book_id'] . "'";
+                                                                                        $sql = "select name, image, price, category from book where id = '" . $row2['book_id'] . "'";
                                                                                         $result3 = $mysql_db->query($sql);
                                                                                         if ($result3) {
                                                                                             $row3 = $result3->fetch_assoc();
@@ -119,7 +119,7 @@ if (!$_SESSION['id_admin']) {
                                                                                     </td>
                                                                                     <td><?php echo $row3['category'] ?></td>
                                                                                     <td>
-                                                                                        <img src="<?php echo str_replace('../../../../', '../../../', $row3['link_image']); ?>" alt="" width="50" height="50">
+                                                                                        <img src="<?php echo str_replace('../../../../', '../../../', $row3['image']); ?>" alt="" width="50" height="50">
                                                                                     </td>
                                                                                     <td><?php echo $row3['price']; ?></td>
                                                                                     <td><?php echo $row2['quantity'] ?></td>

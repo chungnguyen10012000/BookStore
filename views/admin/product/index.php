@@ -87,7 +87,7 @@ if (!$_SESSION['id_admin']) {
                                         $res = $mysql_db->query($sql);
                                         $book = array();
                                         while ($row = $res->fetch_assoc()) {
-                                            array_push($book, array($row['id'], $row['name'], $row['category'], $row['price'], $row['description'], $row['link_image'], $row['published_at'], $row['is_bestseller']));
+                                            array_push($book, array($row['id'], $row['name'], $row['category'], $row['price'], $row['description'], $row['image'], $row['released'], $row['is_bestseller']));
 
                                         ?>
 
@@ -123,7 +123,7 @@ if (!$_SESSION['id_admin']) {
                                             </td>
                                             
                                             <td>
-                                                <img src="<?php echo str_replace('../../../../', '../../../', $row['link_image']); ?>" alt="" style="width: 120px; background-color: transparent;">
+                                                <img src="<?php echo str_replace('../../../../', '../../../', $row['image']); ?>" alt="" style="width: 120px; background-color: transparent;">
                                             </td>                                            
 
                                             <td><button class="btn btn-info" data-toggle="collapse" 

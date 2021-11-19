@@ -38,7 +38,7 @@
                     ?>
                  <div class="col-md-3 col-6 my-md-4 my-3 d-flex align-items-stretch">
                      <div class="team_member card text-center border-danger">
-                         <img class="card-img-top img-fluid" src=<?php echo "../../../" . $row['link_image']; ?>
+                         <img class="card-img-top img-fluid" src=<?php echo "../../../" . $row['image']; ?>
                              alt="A team member">
                          <div class="card-body">
                              <h5 class="card-title"><?php echo $row['full_name']; ?></h5>

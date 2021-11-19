@@ -1,7 +1,7 @@
 <?php
-define('DB_SERVER', 'mariadb');
+define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'toor');
+define('DB_PASSWORD', 'root');
 define('DB_NAME', 'bookstore');
 
 // Attempt to connect to MySQL database
