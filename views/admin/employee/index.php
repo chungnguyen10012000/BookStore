@@ -28,79 +28,75 @@ if (!$_SESSION['id_admin']) {
 
 
     <div class="container-fluid">
+
+        <!-- start code     -->
         <div class="row">
-            <div class="col-md-10 col-12">
-
-                <!-- start code     -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="col d-flex justify-content-end">
-                            <button class="btn btn-success" data-toggle="modal" data-target="#staffModal">Add new employee</button>
-                        </div>
-                        <br>
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 id="titleTable">
-                                    All Employees
-                                </h3>
-                            </div>
-                            <div class="card-content">
-                                <table class="table table-striped table-hover table-responsive-lg" style="table-layout:fixed;">
-                                    <thead>
-                                        <tr>
-                                            <th class="font-weight-bold table-primary">ID</th>
-                                            <th class="font-weight-bold table-primary">Full name</th>
-                                            <th class="font-weight-bold table-primary">Work as</th>
-                                            <th class="font-weight-bold table-primary">Link avatar</th>
-                                            <th class="font-weight-bold table-primary">Link facebook</th>
-                                            <th class="font-weight-bold table-primary">Link twitter</th>
-                                            <th class="font-weight-bold table-primary">Link instagram</th>
-                                            <th class="font-weight-bold table-primary"></th>
-                                            <th class="font-weight-bold table-primary"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+            <div class="col-12">
+                <div class="col d-flex justify-content-end">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#staffModal">Add new employee</button>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 id="titleTable">
+                            All Employees
+                        </h3>
+                    </div>
+                    <div class="card-content">
+                        <table class="table table-striped table-hover table-responsive-lg" style="table-layout:fixed;">
+                            <thead>
+                                <tr>
+                                    <th class="font-weight-bold table-primary">ID</th>
+                                    <th class="font-weight-bold table-primary">Full name</th>
+                                    <th class="font-weight-bold table-primary">Work as</th>
+                                    <th class="font-weight-bold table-primary">Link avatar</th>
+                                    <th class="font-weight-bold table-primary">Link facebook</th>
+                                    <th class="font-weight-bold table-primary">Link twitter</th>
+                                    <th class="font-weight-bold table-primary">Link instagram</th>
+                                    <th class="font-weight-bold table-primary"></th>
+                                    <th class="font-weight-bold table-primary"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
 
 
 
-                                        $sql = "SELECT * from employee";
-                                        $res = $mysql_db->query($sql);
-                                        $employ = array();
-                                        while ($row = $res->fetch_assoc()) {
-                                            array_push($employ, array($row['id'], $row['full_name'], $row['work_as'], $row['link_image'], $row['link_facebook'], $row['link_twitter'], $row['link_instagram']));
+                                $sql = "SELECT * from employee";
+                                $res = $mysql_db->query($sql);
+                                $employ = array();
+                                while ($row = $res->fetch_assoc()) {
+                                    array_push($employ, array($row['id'], $row['full_name'], $row['work_as'], $row['link_image'], $row['link_facebook'], $row['link_twitter'], $row['link_instagram']));
 
-                                        ?>
-                                            <tr>
-                                                <td> <?php echo $row['id'] ?> </td>
-                                                <td> <?php echo $row['full_name'] ?> </td>
-                                                <td> <?php echo $row['work_as'] ?> </td>
-                                                <td> <?php echo $row['link_image'] ?> </td>
-                                                <td> <?php echo $row['link_facebook'] ?> </td>
-                                                <td> <?php echo $row['link_twitter'] ?> </td>
-                                                <td> <?php echo $row['link_instagram'] ?> </td>
+                                ?>
+                                    <tr>
+                                        <td> <?php echo $row['id'] ?> </td>
+                                        <td> <?php echo $row['full_name'] ?> </td>
+                                        <td> <?php echo $row['work_as'] ?> </td>
+                                        <td> <?php echo $row['link_image'] ?> </td>
+                                        <td> <?php echo $row['link_facebook'] ?> </td>
+                                        <td> <?php echo $row['link_twitter'] ?> </td>
+                                        <td> <?php echo $row['link_instagram'] ?> </td>
 
 
-                                                <td> <button class="btn btn-primary" data-toggle="modal" data-target="#staffEditModal<?php echo $row['id'] ?>">Edit</button>
-                                                </td>
-                                                <td> <button class="btn btn-danger" onclick="deleteEmployee(<?php echo $row['id'] ?>)">Delete</button>
-                                                </td>
-                                                </td>
+                                        <td> <button class="btn btn-primary" data-toggle="modal" data-target="#staffEditModal<?php echo $row['id'] ?>">Edit</button>
+                                        </td>
+                                        <td> <button class="btn btn-danger" onclick="deleteEmployee(<?php echo $row['id'] ?>)">Delete</button>
+                                        </td>
+                                        </td>
 
-                                            </tr>
+                                    </tr>
 
-                                        <?php
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                <?php
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
         </div>
+
     </div>
 
 

@@ -28,89 +28,82 @@ if (!$_SESSION['id_admin']) {
 
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-10 col-12">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 id="titleTable">
-                                    All Contacts
-                                </h3>
-                            </div>
-                            <div class="card-content">
-                                <table class="table table-striped table-hover table-responsive-lg">
-                                    <thead>
-                                        <tr>
-                                            <th class="font-weight-bold">ID</th>
-                                            <th class="font-weight-bold">First Name</th>
-                                            <th class="font-weight-bold">Last Name</th>
-                                            <th class="font-weight-bold">Email</th>
-                                            <th class="font-weight-bold">Website</th>
-                                            <th class="font-weight-bold">Subject</th>
-                                            <th class="font-weight-bold">Message</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $sql = "select * from send_email_log";
-                                        $result = $mysql_db->query($sql);
-                                        if ($result) {
-                                            while ($row = $result->fetch_assoc()) {
-                                        ?>
-                                                <tr id=<?php echo $row['id']; ?>>
-                                                    <td><?php echo $row['id']; ?></td>
-                                                    <td><?php echo $row['first_name']; ?></td>
-                                                    <td><?php echo $row['last_name']; ?></td>
-                                                    <td><?php echo $row['email']; ?></td>
-                                                    <td><?php echo $row['website']; ?></td>
-                                                    <td><?php echo $row['subject']; ?></td>
-                                                    <th><button class="btn btn-success" data-toggle="collapse" data-target=<?php echo "#msg" . $row['id']; ?> aria-expanded="false" aria-controls=<?php echo "msg" . $row['id']; ?>>View
-                                                            message</button>
-                                                    </th>
-                                                    <td><button class="btn_delete btn btn-danger" data-toggle="modal" data-rowid=<?php echo $row['id']; ?> data-target="#deleteConfirm">Delete</button></td>
-                                                </tr>
+        <div class="card">
+            <div class="card-header">
+                <h3 id="titleTable">
+                    All Contacts
+                </h3>
+            </div>
+            <div class="card-content">
+                <table class="table table-striped table-hover table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th class="font-weight-bold">ID</th>
+                            <th class="font-weight-bold">First Name</th>
+                            <th class="font-weight-bold">Last Name</th>
+                            <th class="font-weight-bold">Email</th>
+                            <th class="font-weight-bold">Website</th>
+                            <th class="font-weight-bold">Subject</th>
+                            <th class="font-weight-bold">Message</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "select * from send_email_log";
+                        $result = $mysql_db->query($sql);
+                        if ($result) {
+                            while ($row = $result->fetch_assoc()) {
+                        ?>
+                                <tr id=<?php echo $row['id']; ?>>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['first_name']; ?></td>
+                                    <td><?php echo $row['last_name']; ?></td>
+                                    <td><?php echo $row['email']; ?></td>
+                                    <td><?php echo $row['website']; ?></td>
+                                    <td><?php echo $row['subject']; ?></td>
+                                    <th><button class="btn btn-success" data-toggle="collapse" data-target=<?php echo "#msg" . $row['id']; ?> aria-expanded="false" aria-controls=<?php echo "msg" . $row['id']; ?>>View
+                                            message</button>
+                                    </th>
+                                    <td><button class="btn_delete btn btn-danger" data-toggle="modal" data-rowid=<?php echo $row['id']; ?> data-target="#deleteConfirm">Delete</button></td>
+                                </tr>
 
-                                                <tr id=<?php echo $row['id'] . "collapse"; ?>>
-                                                    <th colspan="9">
-                                                        <div class="card collapse" id=<?php echo "msg" . $row['id']; ?>>
-                                                            <div class="card-header">
-                                                                <h6 id="titleTable">
-                                                                    <?php
-                                                                    echo $row['first_name'] . " " . $row["last_name"] . "'s message";
-                                                                    ?>
-                                                                </h6>
-                                                            </div>
-                                                            <div class="card-content p-3">
-                                                                <p>
-                                                                    <?php
-                                                                    echo $row['message'];
-                                                                    ?>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </th>
-                                                </tr>
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-                                        <tr>
-                                            <th colspan="10" class="text-center">
-                                                ---End---
-                                            </th>
-                                        </tr>
-                                    </tbody>
+                                <tr id=<?php echo $row['id'] . "collapse"; ?>>
+                                    <th colspan="9">
+                                        <div class="card collapse" id=<?php echo "msg" . $row['id']; ?>>
+                                            <div class="card-header">
+                                                <h6 id="titleTable">
+                                                    <?php
+                                                    echo $row['first_name'] . " " . $row["last_name"] . "'s message";
+                                                    ?>
+                                                </h6>
+                                            </div>
+                                            <div class="card-content p-3">
+                                                <p>
+                                                    <?php
+                                                    echo $row['message'];
+                                                    ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                        <tr>
+                            <th colspan="10" class="text-center">
+                                ---End---
+                            </th>
+                        </tr>
+                    </tbody>
 
-                                </table>
+                </table>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
     </div>
     <!-- Modal delete confirm-->
     <div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="deleteConfirm">

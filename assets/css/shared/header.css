@@ -87,7 +87,7 @@ header {
 } */
 
 .header nav .navbar-nav .nav-item .nav-link:hover {
-    color: red !important;
+    color: rgb(27, 219, 233) !important;
 }
 
 .header .cart {

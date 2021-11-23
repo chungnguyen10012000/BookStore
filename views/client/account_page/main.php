@@ -45,17 +45,17 @@
                                 </div> 
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
-                                        <button name="btnUpdate" type="button" class="btn btn-primary" onclick="updateInfor(<?php echo $_SESSION['id']; ?>)">Update My Profile</button>
+                                        <button name="btnUpdate" type="button" class="btn btn-primary" onclick="updateInfor(<?php echo $_SESSION['id']; ?>)">Update My Profile <i class="fas fa-user-cog"></i></button>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-4">
                                         <button name="btnChangePassword" type="button" class="btn btn-success" data-toggle="modal" data-target="#changePasswordModal">
-                                            Change Password
+                                            Change Password     <i class="fas fa-user-shield"></i>
                                         </button>
                                     </div>
                                     <div class="offset-4 col-4">
-                                        <button name="btnLogout" type="button" class="btn btn-danger float-right" onclick="window.location.href='../authenticate/logout.php'">Logout</button>
+                                        <button name="btnLogout" type="button" class="btn btn-danger float-right" onclick="window.location.href='../authenticate/logout.php'">Logout   <i class='fas fa-sign-out-alt'></i></button>
                                     </div>
                                 </div>
                             </form>

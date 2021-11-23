@@ -49,6 +49,10 @@
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="../information/index.php">
+                        <i class='fas fa-user-edit'></i>
+                            <span class="nav-link-text">Change information</span>
+                        </a>
                         <a class="dropdown-item" href="../logout/index.php">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-link-text">Logout</span>
