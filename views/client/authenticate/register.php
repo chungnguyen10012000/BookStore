@@ -1,25 +1,20 @@
 <?php
 
-//use PHPMailer\PHPMailer\PHPMailer;
-
 require '../../../data/config.php';
-//require_once '../../../vendor//autoload.php';
 
-// session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = '';
     $successful_mesg = '';
     $email = $_POST['email'];
     $password = $_POST['password'];
     $birthdate = $_POST['birthdate'];
-    // print "<script>alert('$birthdate')</script>";
     $customer_name = $_POST['customer_name'];
     $phone = $_POST['phone'];
     $registered_at = date('Y-m-d');
     if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['re_password'])) {
         $error = 'Email and password cannot be empty.';
     } else if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email) == false) {
-        // print "<script>alert('$email')</script>";
         $error = 'Email is not valid.';
     } else if ($_POST['password'] !=  $_POST['re_password']) {
         $error = 'You must type correct re-type password';
@@ -39,63 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $query = "insert into verification_account(email, hash) values(?,?)";
             $stmt = mysqli_prepare($mysql_db, $query);
             mysqli_stmt_bind_param($stmt, 'ss', $email, $hash);
-            mysqli_stmt_execute($stmt);
-            /* $to      = $email; // Send email to our user
-            $subject = 'Signup | Verification'; // Give the email a subject 
-            $message = '
-                    
-                    <p>Thanks for signing up!
-                    Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.</p>
-                    
-                    <p>------------------------</p>                
-                    <p style="font-weight: 600;">Username: ' . $email . '</p>                    
-                    <p>------------------------</p>
-                    
-                    Please click this link to activate your account:' . site_url("verify.php") . '?email=' . $email . '&hash=' . $hash . '
-                    
-                    '; // Our message above including the link
-
-            $headers = 'From:noreply@localhost.com' . "\r\n"; // Set from headers
-
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Username = "nvchung00@gmail.com";
-            $mail->Password = "burnthemall";
-            $mail->Host = "smtp.gmail.com";
-            $mail->SMTPSecure = "tls";
-            $mail->Port = 587;
-            $mail->SMTPAuth = true;
-
-            //Set who the message is to be sent from
-            $mail->setFrom('nvchung00@gmail.com', 'Bookstore');
-
-            //Set an alternative reply-to address
-            $mail->addReplyTo('nvchung00@gmail.com', 'Bookstore');
-
-            //Set who the message is to be sent to
-            $mail->addAddress($to);
-
-            //Set the subject line
-            $mail->Subject = 'Bookstore activation account.';
-
-            //Read an HTML message body from an external file, convert referenced images to embedded,
-            //convert HTML into a basic plain-text alternative body
-
-            $mail->isHTML(true);
-            //Replace the plain text body with one created manually
-            $mail->Body = $message;
-
-            //Attach an image file
-            // $mail->addAttachment('images/phpmailer_mini.png');
-
-            //send the message, check for errors
-            if (!$mail->send()) {
-                echo "Mailer Error: " . $mail->ErrorInfo;
-            } */
-
-            // if (mail($to, $subject, $message, $headers) == false) {
-            //     print "<script>alert('abcashkj')</script>";
-            // }                    
+            mysqli_stmt_execute($stmt);                   
             mysqli_close($mysql_db);
             $successful_mesg = 'Register successfully.';
         }
@@ -125,8 +64,7 @@ function site_url($url)
     <div class="container row">
         <div class="col-10 col-md-6 col-lg-7">
             <div class="logo">
-                <img class="logo-img" src="../../../assets/images/header/logo.png" alt="logo">
-                <p class="title">Create Account</p>
+                <h1>Create Account</h1>
             </div>
             <div class="form-login">
                 <form action="register.php" method="post">
@@ -163,7 +101,10 @@ function site_url($url)
                     if (!empty($error)) {
                         print "<p class='error_msg'>$error</p>";
                     } elseif (!empty($successful_mesg)) {
-                        print "<script>alert('$successful_mesg')</script>";
+                        print "<script>
+                            alert('$successful_mesg')
+                            window.location.href = '../home_page/index.php'
+                        </script>";
                     }
                     ?>
                     <hr>

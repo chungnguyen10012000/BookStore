@@ -94,9 +94,9 @@
                                                 <td>$<?php echo $row['total_price']; ?></td>
                                                 <td><?php echo $row['created_at']; ?></td>
 
-                                                <th><button class="btn btn-info" data-toggle="collapse" data-target=<?php echo "#detail" . $row['id']; ?> aria-expanded="false" aria-controls=<?php echo "detail" . $row['id']; ?>>View
+                                                <!-- <th><button class="btn btn-info" data-toggle="collapse" data-target=<?php echo "#detail" . $row['id']; ?> aria-expanded="false" aria-controls=<?php echo "detail" . $row['id']; ?>>View
                                                         detail</button>
-                                                </th>
+                                                </th> -->
                                             </tr>
 
                                             <tr id=<?php echo $row['id'] . "collapse"; ?>>

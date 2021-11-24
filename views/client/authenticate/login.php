@@ -44,7 +44,10 @@
                                 $_SESSION["id"] = $id;                            
                                 
                                 // Redirect user to welcome page
-                                header("location: ../home_page/index.php");
+                                echo "<script>
+                                    alert('Login successful')
+                                    window.location.href = '../home_page/index.php'
+                                </script>";
                             } else{
                                 // Password is not valid, display a generic error message
                                 $error = "Invalid email or password.";

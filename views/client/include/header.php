@@ -20,16 +20,12 @@
                             <span class="fa fa-search form-control-feedback"></span>
                             <form action="../product_page/index.php"><input type="text" name="keyword" class="form-control" placeholder="Search"></form>
                         </div>
-                    <!-- <a href="#"><i class="fas fa-search"></i></a> -->
                     </li>
-                    <!-- <li class="shop_heart">
-                        <a href="#"><i class="far fa-heart"></i></a>
-                    </li> -->
+
                     <li class="shop_cart">
-                        <a href="../cart/"><i class="fas fa-cart-arrow-down"></i></a>
+                        <a href="../cart/index.php"><i class="fas fa-cart-arrow-down"></i></a>
                     </li>
                     <?php 
-                        // print "<script>alert('ac')</script>";
                       
                         if (!empty($_SESSION['email'])) {
                             print "<li class='shop_cart'>
@@ -67,9 +63,14 @@
 
                 </ul>
             </div>
+            
 
         </nav>
 
     </div>
+
+
+
+ 
 
 </header>

@@ -126,7 +126,8 @@ CREATE TABLE `customer` (
   `birthdate` date DEFAULT NULL,
   `registered_at` datetime DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT 0,
-  `password` text DEFAULT NULL
+  `password` text DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

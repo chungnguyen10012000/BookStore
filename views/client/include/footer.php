@@ -8,7 +8,7 @@
         <div class="row text-center">
             <div class="col-12">
                 <div class="footer-top my-4">
-                    <a href="#"><img src="https://i.pinimg.com/originals/70/bd/63/70bd630505578fffc4c873001f89a9e1.jpg" alt="logo" class="img-fluid mb-3"></a>
+                    <h2>BookStore</h2>
                 </div>
             </div>
         </div>

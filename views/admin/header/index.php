@@ -11,6 +11,8 @@
 
 ?>
 
+<link rel="stylesheet" href="../../../assets/css/admin/navbar.css">
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom sticky-top">
         <a class="navbar-brand" href="index.php">
             Bookstore

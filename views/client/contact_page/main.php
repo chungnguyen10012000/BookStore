@@ -42,7 +42,7 @@
                              </div>
                              <div class="d-flex justify-content-center">
                                  <button type="button" class="btn btn-primary mt-2" name="btn_send_email"
-                                     id="btn_send_email">
+                                     id="btn_send_email" onclick="send_mail()">
                                      Submit
                                  </button>
                                  <div class="spinner-border mt-2 ml-2" id="spinnerEmail" role="status">
@@ -74,4 +74,9 @@
      </section>
      <!-- end content -->
  </main>
+ <script>
+     function send_mail(){
+        alert('Thank you for responding!!!')
+     }
+ </script>
  <script src="../../../assets/js/contact_page/postEmail.js"></script>
