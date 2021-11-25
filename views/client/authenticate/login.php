@@ -41,7 +41,7 @@
                                 $_SESSION["name"] = $name;
                                 $_SESSION["phone"] = $phone;                            
                                 $_SESSION["birthdate"] = $birthdate;     
-                                $_SESSION["id"] = $id;                            
+                                $_SESSION["id"] = $id;                       
                                 
                                 // Redirect user to welcome page
                                 echo "<script>

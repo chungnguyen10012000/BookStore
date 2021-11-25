@@ -18,8 +18,7 @@
 
 <body>
     <?php include( "../include/header.php"); ?>
-    <?php include( "./header.php"); ?>
-    <?php include( '../include/script.php'); ?>
+    <?php include("./header.php"); ?>
     <?php include( "../include/footer.php"); ?>
 </body>
 

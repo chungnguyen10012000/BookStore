@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthdate = $_POST['birthdate'];
     $customer_name = $_POST['customer_name'];
     $phone = $_POST['phone'];
+    $avatar = $_POST['customer_avatar'];
     $registered_at = date('Y-m-d');
     if (empty($_POST['email']) || empty($_POST['password']) || empty($_POST['re_password'])) {
         $error = 'Email and password cannot be empty.';
@@ -19,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($_POST['password'] !=  $_POST['re_password']) {
         $error = 'You must type correct re-type password';
     } else {
-        $query = "insert into customer(name, email, phone, birthdate, registered_at, password) values (?,?,?,?,?,?)";
+        $query = "insert into customer(name, email, phone, birthdate, registered_at, password, avatar) values (?,?,?,?,?,?,?)";
 
         $stmt = mysqli_prepare($mysql_db, $query);
 
         // bind parameter
-        mysqli_stmt_bind_param($stmt, 'ssssss', $customer_name, $email, $phone, $birthdate, $registered_at, $password);
+        mysqli_stmt_bind_param($stmt, 'sssssss', $customer_name, $email, $phone, $birthdate, $registered_at, $password, $avatar);
         $password = password_hash($password, PASSWORD_DEFAULT);
         //execute query
         if (mysqli_stmt_execute($stmt) == false) {
@@ -96,6 +97,11 @@ function site_url($url)
                         <label for="phone">Phone</label>
                         <input id="phone" class="form-control" type="text" name="phone"
                             value="<?php print !empty($error) ? $_POST['phone'] :  '' ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer_avatar">Your avatar</label>
+                        <input id="customer_avatar" class="form-control" type="text" name="customer_avatar"
+                            value="<?php print !empty($error) ? $_POST['customer_avatar'] :  '' ?>">
                     </div>
                     <?php
                     if (!empty($error)) {

@@ -32,14 +32,18 @@
                                     $cart_data = json_decode($cookie_data,true,512,JSON_UNESCAPED_UNICODE); 
                                     //var_dump($cart_data);
                                     $address = '';      
-                                    $id_arr = 'a';                             
+                                    $id_arr = 'a';  
+                                    $count = 0;                           
                                     foreach($cart_data as $keys => $values) {
                                         $id = $values['item_id'];
                                         $id_arr = $id_arr . '-' . $id;
                                         $product_name_class = 'product-name-' . $id;
                                         $product_price_class = 'product-price-' . $id;
                                         $product_quantity_class = 'product-quantity-' .$id;
-                                        $product_total_class = 'product-total-' . $id;                                        
+                                        $product_total_class = 'product-total-' . $id; 
+                                        if ($values['item_city'] != '') {
+                                            $address = $values['item_city'];
+                                        }                                       
                             ?>
                                 <tr>
                                     <td class="product-thumbnail">
@@ -57,7 +61,9 @@
                                 ?>
                                 <tr>
                                     <td class="value-order" colspan="6" align="right">
-                                        <p class="total-cost">Total: $<?php  echo number_format($total, 2);?></p>
+                                        <p class="total-cost-product">Book cost: $<?php echo number_format($total, 2); ?><p>
+                                        <p>Ship cost: $2</p>
+                                        <p class="total-cost">Total: $<?php  echo number_format($total + 2, 2);?></p>
                                     </td>
                                 </tr>
                             <?php
@@ -75,9 +81,13 @@
                         </table>
                     </div>
                     <div class="cartbox__btn ">    
+                        <div class="form-group">
+                            <label class="address-label">Address: </label>
+                            <input class="form-control" type="text" value="<?php echo $address ?>">
+                            <input class="user-id" type="hidden" value="<?php echo $user_id ?>">
+                        </div>  
                         <div class="action-btn mx-auto">
                             <button class="btn btn-success update-btn <?php echo $id_arr; ?>">Update Cart</button>
-                            <input value=<?php echo $user_id?> type="hidden" id="userId">
                             <button class="btn btn-success checkout-btn <?php echo $id_arr; ?>">Check Out</button>
                         </div>           
 			        </div>
@@ -129,6 +139,8 @@
 
     $('.checkout-btn').click(function(event) {
         
+        var cart = document.querySelector('.badge');
+        cart.innerHTML = '0';
         let user_id = $('#userId').val();
         //alert(user_id);
         if (user_id == '') {

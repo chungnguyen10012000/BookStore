@@ -145,6 +145,13 @@ while ($item = mysqli_fetch_assoc($result)) {
                                 </div>
                                 <span class="text-danger" id="activeErr"></span>
                             </div>
+                            <div class="form-group row align-items-center justify-content-center">
+                                <label for="avatar-edit-<?php echo $customer['id']; ?>" class="col-2 col-form-label"><strong>Avatar</strong></label>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" value="<?php echo $customer['avatar']; ?>" id="avatar-edit-<?php echo $customer['id']; ?>">
+                                </div>
+                                <span class="text-danger" id="avatarErr"></span>
+                            </div>
 
                             <!-- <span class="text-danger" id="activeErr"></span> -->
                         </form>
@@ -187,6 +194,7 @@ while ($item = mysqli_fetch_assoc($result)) {
             var birthday = $("#birthday-edit-" + customer_id).val();
             var register_at = $("#register_at-edit-" + customer_id).val();
             var active = $("#active-edit-" + customer_id).val();
+            var avatar = $("#avatar-edit-" + customer_id).val();
             $.post(
                 "../post/customer_func.php", {
                     action: "edit_customer",
@@ -198,6 +206,7 @@ while ($item = mysqli_fetch_assoc($result)) {
                     birthday: birthday,
                     register_at: register_at,
                     active: active,
+                    avatar: avatar,
                 },
                 function(data, status) {
                     alert(data);

@@ -134,9 +134,9 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `birthdate`, `registered_at`, `active`, `password`) VALUES
-(1, 'XXX', '12345@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$1nAQq67NQhizV78n/u9AVOSzH4b/YF7HDwA6R2xOHAjF8I8rnnDZG'),
-(2, 'XX', '123@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$Bg/al3CWUaaH5cv81nv2T.rZf/CUslCk2asNAghkfYmjMgaZhCF1m');
+INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `birthdate`, `registered_at`, `active`, `password`, `avatar`) VALUES
+(1, 'XXX', '12345@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$1nAQq67NQhizV78n/u9AVOSzH4b/YF7HDwA6R2xOHAjF8I8rnnDZG', '../../../assets/images/admin/avatar_1.jpg'),
+(2, 'XX', '123@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$Bg/al3CWUaaH5cv81nv2T.rZf/CUslCk2asNAghkfYmjMgaZhCF1m', '../../../assets/images/admin/avatar_2.jpg');
 
 -- --------------------------------------------------------
 

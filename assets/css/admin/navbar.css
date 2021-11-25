@@ -9,3 +9,9 @@
 .nav-item .nav-link:hover{
     color: red !important;
 }
+
+.navbar {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}

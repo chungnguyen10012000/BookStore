@@ -44,10 +44,17 @@
                                     </div>
                                 </div> 
                                 <div class="form-group row">
+                                    <label for="avatar" class="col-4 col-form-label">Avatar</label> 
+                                    <div class="col-8">
+                                        <input id="avatar" name="avatar" placeholder="Avatar" class="form-control here" required="required" type="text"  value="<?php echo $customer['avatar']; ?>">
+                                    </div>
+                                </div> 
+                                <div class="form-group row">
                                     <div class="offset-4 col-8">
                                         <button name="btnUpdate" type="button" class="btn btn-primary" onclick="updateInfor(<?php echo $_SESSION['id']; ?>)">Update My Profile <i class="fas fa-user-cog"></i></button>
                                     </div>
                                 </div>
+                                
                                 <div class="form-group row">
                                     <div class="col-4">
                                         <button name="btnChangePassword" type="button" class="btn btn-success" data-toggle="modal" data-target="#changePasswordModal">

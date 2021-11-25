@@ -32,6 +32,7 @@
             'item_id'			=>	$_POST['id'],
             'item_name'			=>	$_POST['name'],
             'item_price'		=>	$_POST['price'],
+            'item_city'         =>  !empty($_POST['city']) ? $_POST['city'] : '',
             'item_image'        =>  $_POST['image'],
             'item_quantity'     =>  !empty($_POST['quantity']) ? $_POST['quantity'] : '1'
         );

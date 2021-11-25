@@ -29,15 +29,16 @@
         $birthday = $_POST['birthday'];
         $register_at = $_POST['register_at'];
         $active = $_POST['active'];
+        $avatar = $_POST['avatar'];
         
-        echo editCustomer($mysql_db, $id, $name, $email, $originalEmail, $phone, $birthday, $register_at, $active);
+        echo editCustomer($mysql_db, $id, $name, $email, $originalEmail, $phone, $birthday, $register_at, $active, $avatar);
     }
-    function editCustomer($mysqli, $id, $name, $email, $originalEmail, $phone, $birthday, $register_at, $active) {
+    function editCustomer($mysqli, $id, $name, $email, $originalEmail, $phone, $birthday, $register_at, $active, $avatar) {
         $uncheck_constraint = "SET FOREIGN_KEY_CHECKS=0;";
         
         $queryCusTable = "UPDATE customer 
                     SET name='$name', email='$email', phone='$phone', 
-                        birthdate='$birthday', registered_at='$register_at', active='$active'
+                        birthdate='$birthday', registered_at='$register_at', active='$active', avatar = '$avatar'
                     WHERE id=$id;";
         $queryVerTable = "UPDATE verification_account
                             SET email='$email'

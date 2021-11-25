@@ -63,6 +63,7 @@ session_start();
             var originalEmail = $("#originalEmail").val();
             var phone = $("#phone").val();
             var birthday = $("#birthday").val();
+            var avatar = $("#avatar").val();
             $.post(
                 "account_func.php",
                 {
@@ -72,7 +73,8 @@ session_start();
                     email: email,
                     originalEmail: originalEmail,
                     phone: phone,
-                    birthday: birthday
+                    birthday: birthday,
+                    avatar: avatar,
                 },
                 function(data, status) {
                     alert(data);
