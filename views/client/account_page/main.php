@@ -17,7 +17,7 @@
 		            </div>
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <form method="POST">
+		                    <form method="POST" id="fileUploadForm" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label for="name" class="col-4 col-form-label">Name</label> 
                                     <div class="col-8">
@@ -31,6 +31,7 @@
                                         <input id="email" name="email" placeholder="Email" class="form-control here" type="email" value="<?php echo $customer['email']; ?>">
                                     </div>
                                 </div>
+                                <input id="id" name="id" placeholder="Phone" class="form-control here" type="text"  value="<?php echo $_SESSION['id']; ?>" hidden>
                                 <div class="form-group row">
                                     <label for="phone" class="col-4 col-form-label">Phone</label> 
                                     <div class="col-8">
@@ -46,7 +47,7 @@
                                 <div class="form-group row">
                                     <label for="avatar" class="col-4 col-form-label">Avatar</label> 
                                     <div class="col-8">
-                                        <input id="avatar" name="avatar" placeholder="Avatar" class="form-control here" required="required" type="text"  value="<?php echo $customer['avatar']; ?>">
+                                        <input name="avatar" type="file" name="fileToUpload"/>
                                     </div>
                                 </div> 
                                 <div class="form-group row">

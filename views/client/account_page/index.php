@@ -58,30 +58,27 @@ session_start();
         
         // Update information
         function updateInfor(customer_id) {
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var originalEmail = $("#originalEmail").val();
-            var phone = $("#phone").val();
-            var birthday = $("#birthday").val();
-            var avatar = $("#avatar").val();
-            $.post(
-                "account_func.php",
-                {
-                    action: "update_info",
-                    id: customer_id,
-                    name: name,
-                    email: email,
-                    originalEmail: originalEmail,
-                    phone: phone,
-                    birthday: birthday,
-                    avatar: avatar,
-                },
-                function(data, status) {
-                    alert(data);
-                    if (data == "Update Information SUCCESSFULLY!")
-                        window.location.href = "index.php";
+            // Get form
+            var form = $('#fileUploadForm')[0];
+    
+            // Create an FormData object 
+            var data = new FormData(form);
+
+            data.append('action', "update_info")
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "account_func.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    console.log(data)
+                    location.reload(true); 
                 }
-            );
+            })
         }
 
         // Change Password

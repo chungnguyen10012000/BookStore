@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "../../../data/config.php";
+
 function validUserName($data)
 {
     if (empty($data)) {
@@ -99,8 +100,42 @@ function validBirthday($data)
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $target_dir = "../../../assets/images/admin/";
+$target_file = $target_dir . basename($_FILES["avatar"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["avatar"]["tmp_name"]);
+  if($check !== false) {
+    $uploadOk = 1;
+  } else {
+    $uploadOk = 0;
+  }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["avatar"]["size"] > 500000) {
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
+
     $message = array(
-        "userName" => "",
+        "username" => "",
         "firstName" => "",
         "lastName" => "",
         "email" => "",
@@ -110,24 +145,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "systemError" => "",
         "success" => true
     );
-    $message['userName'] = validUserName($_POST['userName']);
-    $message['firstName'] = validFirstName($_POST['firstName']);
+    $message['userName'] = validUserName($_POST['username']);
+    $message['firstName'] = validFirstName($_POST['fistName']);
     $message['lastName'] = validFirstName($_POST['lastName']);
     $message['email'] = validEmail($_POST['email']);
     $message['phone'] = validPhone($_POST['phone']);
     $message['birthday'] = validBirthday($_POST['birthday']);
+    $message['avatar'] = $target_file;
     if ($message['userName'] || $message['firstName'] ||   $message['email'] || $message['phone'] || $message['birthday'] || $message['lastName']) 
     {
         $message['success'] = false;
     } else {
         $query = "update admin set 
-        user_name = '" . $_POST['userName'] . "' , 
-        first_name = '" . $_POST['firstName'] . "' , 
+        user_name = '" . $_POST['username'] . "' , 
+        first_name = '" . $_POST['fistName'] . "' , 
         last_name = '" . $_POST['lastName'] . "' , 
         email = '" . $_POST['email'] . "' ,
         phone = '" . $_POST['phone'] . "' ,
         birthdate = '" . $_POST['birthday'] . "' ,
-        avatar = '" . $_POST['avatar'] . "'
+        avatar = '" . $target_file . "'
         where id='" . $_SESSION['id_admin'] . "'  
         ";
         $result = $mysql_db->query($query);
@@ -136,11 +172,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message['systemError'] = $mysql_db->error;
         } else {
             $_SESSION["first_name"] = $_POST['firstName'];
+            $_SESSION["avatar"] = $target_file;
         }
     }
     echo json_encode($message);
 }
-?>
-<?php
-
 ?>

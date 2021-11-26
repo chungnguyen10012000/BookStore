@@ -141,7 +141,7 @@
         
         var cart = document.querySelector('.badge');
         cart.innerHTML = '0';
-        let user_id = $('#userId').val();
+        let user_id = $('.user-id').val();
         //alert(user_id);
         if (user_id == '') {
             alert('You have not loged in yet! Please login to purchase this order.');

@@ -104,56 +104,56 @@ if (!$_SESSION['id_admin']) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="return false;">
+                    <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
                         <div class="form-group row">
                             <label for="inputUserName" class="col-sm-2 col-form-label font-weight-bold">Username</label>
                             <div class="col-sm-10" id="formUserName">
-                                <input type="text" class="form-control" id="inputUserName" value="<?php echo $row['user_name']; ?>">
+                                <input name="username" type="text" class="form-control" id="inputUserName" value="<?php echo $row['user_name']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputFirstName" class="col-sm-2 col-form-label font-weight-bold">First
                                 Name</label>
                             <div class="col-sm-10" id="formFirstName">
-                                <input type="text" class="form-control" id="inputFirstName" value="<?php echo $row['first_name']; ?>">
+                                <input name="fistName" type="text" class="form-control" id="inputFirstName" value="<?php echo $row['first_name']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputLastName" class="col-sm-2 col-form-label font-weight-bold">Last Name</label>
                             <div class="col-sm-10" id="formLastName">
-                                <input type="text" class="form-control" id="inputLastName" value="<?php echo $row['last_name']; ?>">
+                                <input name="lastName" type="text" class="form-control" id="inputLastName" value="<?php echo $row['last_name']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputAvatar" class="col-sm-2 col-form-label font-weight-bold">Avatar</label>
                             <div class="col-sm-10" id="formLastName">
-                                <input type="text" class="form-control" id="inputAvatar" value="<?php echo $row['avatar']; ?>">
+                                <input name="avatar" type="file" name="fileToUpload"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail" class="col-sm-2 col-form-label font-weight-bold">Email</label>
                             <div class="col-sm-10" id="formEmail">
-                                <input type="email" class="form-control" id="inputEmail" value="<?php echo $row['email'];  ?>">
+                                <input name="email" type="email" class="form-control" id="inputEmail" value="<?php echo $row['email'];  ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPhone" class="col-sm-2 col-form-label font-weight-bold">Telephone</label>
                             <div class="col-sm-10" id="formPhone">
-                                <input type="text" class="form-control" id="inputPhone" value="<?php echo $row['phone']; ?>">
+                                <input name="phone" type="text" class="form-control" id="inputPhone" value="<?php echo $row['phone']; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputBirthday" class="col-sm-2 col-form-label font-weight-bold">Birthday</label>
                             <div class="col-sm-10" id="formBirthday">
-                                <input type="date" class="form-control" id="inputBirthday" value="<?php echo $row['birthdate']; ?>">
+                                <input name="birthday" type="date" class="form-control" id="inputBirthday" value="<?php echo $row['birthdate']; ?>">
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class=" modal-footer d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary" id="confirmProfileBtn">Save
+                        <div class=" modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" id="confirmProfileBtn">Save
                         changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                    </form>
                 </div>
             </div>
         </div>

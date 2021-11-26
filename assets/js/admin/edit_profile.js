@@ -1,27 +1,41 @@
 $(document).ready(function () {
     var modal = $('#profileModal')
     var confirmProfileBtn = modal.find('.modal-footer #confirmProfileBtn')
-    confirmProfileBtn.click(function () {
-        modal.find('.warning_error').remove();
-        $.post("../post/profile_edit.php",
-            {
-                userName: $('#inputUserName').val(),
-                firstName: $('#inputFirstName').val(),
-                lastName: $('#inputLastName').val(),
-                avatar: $('#inputAvatar').val(),
-                email: $('#inputEmail').val(),
-                phone: $('#inputPhone').val(),
-                birthday: $('#inputBirthday').val()
-            },
-            function (data, status) {
+    confirmProfileBtn.click(function (event) {
+
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+    
+        // Get form
+        var form = $('#fileUploadForm')[0];
+    
+        // Create an FormData object 
+        var data = new FormData(form);
+    
+    
+        // disabled the submit button
+        confirmProfileBtn.prop("disabled", true);
+    
+        $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "../post/profile_edit.php",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+    
                 data = JSON.parse(data);
                 if (data.success) {
                     console.log("Profile has been changed.");
                     console.log(data)
                     $("#topLeftName").text($('#inputFirstName').val());
                     $("#tableProfile").load(window.location.href + " #tableProfile > *");
-                    $("#linkAvatar").attr("src", $('#inputAvatar').val());
+                    $("#linkAvatar").attr("src", $('#fileToUpload').val());
                     modal.modal('hide');
+                    location.reload(true); 
 
 
                 }
@@ -73,10 +87,9 @@ $(document).ready(function () {
                     }
                     modal.modal('handleUpdate');
                 }
-            });
-        return false;
-    });
+            }, 
+        return: false,
+    })
     modal.on('show.bs.modal', function (event) {
         modal.find('.warning_error').remove();
-    })
-});
+    })})})
