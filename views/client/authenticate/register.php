@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $successful_mesg = '';
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $birthdate = $_POST['birthdate'];
+    $birthday = $_POST['birthday'];
     $customer_name = $_POST['customer_name'];
     $phone = $_POST['phone'];
     $registered_at = date('Y-m-d');
@@ -63,12 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Sorry, there was an error uploading your file.";
             }
         }
-        $query = "insert into customer(name, email, phone, birthdate, registered_at, password, avatar) values (?,?,?,?,?,?,?)";
+        $query = "insert into customer(name, email, phone, birthday, registered_at, password, avatar) values (?,?,?,?,?,?,?)";
 
         $stmt = mysqli_prepare($mysql_db, $query);
 
         // bind parameter
-        mysqli_stmt_bind_param($stmt, 'sssssss', $customer_name, $email, $phone, $birthdate, $registered_at, $password, $avatar);
+        mysqli_stmt_bind_param($stmt, 'sssssss', $customer_name, $email, $phone, $birthday, $registered_at, $password, $avatar);
         $password = password_hash($password, PASSWORD_DEFAULT);
         //execute query
         if (mysqli_stmt_execute($stmt) == false) {
@@ -130,8 +130,8 @@ function site_url($url)
                         <input id="re-password" class="form-control" type="password" name="re_password" value="">
                     </div>
                     <div class="form-group">
-                        <label for="birthdate">Birthdate</label>
-                        <input id="birthdate" class="form-control" type="date" name="birthdate" value="<?php print !empty($error) ? $_POST['birthdate'] :  '' ?>">
+                        <label for="birthday">Birthday</label>
+                        <input id="birthday" class="form-control" type="date" name="birthday" value="<?php print !empty($error) ? $_POST['birthday'] :  '' ?>">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>

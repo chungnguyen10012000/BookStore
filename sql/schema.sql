@@ -12,14 +12,14 @@ CREATE TABLE `admin` (
   `last_name` varchar(255) NOT NULL,
   `user_name` varchar(30) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
   `registered_at` datetime DEFAULT NULL,
   `password` text DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-INSERT INTO `admin` (`id`, `email`, `first_name`, `last_name`, `user_name`, `phone`, `birthdate`, `registered_at`, `password`, `avatar`) VALUES
+INSERT INTO `admin` (`id`, `email`, `first_name`, `last_name`, `user_name`, `phone`, `birthday`, `registered_at`, `password`, `avatar`) VALUES
 (1, 'nvchung00@gmail.com', 'Chung', 'Nguyen Van', 'chungnguyen10012000', '098-943-9678', '2000-01-10', '2021-11-17 8:17:33', 'chungnguyen','../../assets/images/admin/avatar_1.png'),
 (2, 'trung@gmail.com', 'Trung', 'Dang', 'trung', '012-345-6789', '2000-01-10', '2021-11-17 8:30:22', 'admin', '../../assets/images/admin/avatar_1.png'),
 (3, 'hung@gmail.com', 'Hung', 'Nguyen', 'hung', '012-345-6789', '2000-01-10', '2021-11-17 8:30:22', 'admin', '../../assets/images/admin/avatar_1.png'),
@@ -74,14 +74,14 @@ CREATE TABLE `customer` (
   `name` varchar(40) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `birthdate` date DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
   `registered_at` datetime DEFAULT NULL,
   `active` int(1) NOT NULL DEFAULT 1,
   `password` text DEFAULT NULL,
   `avatar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `birthdate`, `registered_at`, `active`, `password`, `avatar`) VALUES
+INSERT INTO `customer` (`id`, `name`, `email`, `phone`, `birthday`, `registered_at`, `active`, `password`, `avatar`) VALUES
 (1, 'customer_1', '12345@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$1nAQq67NQhizV78n/u9AVOSzH4b/YF7HDwA6R2xOHAjF8I8rnnDZG', '../../../assets/images/admin/avatar_1.png'),
 (2, 'customer_2', '123@gmail.com', '123456', '2000-10-12', '2021-17-08 00:00:00', 1, '$2y$10$Bg/al3CWUaaH5cv81nv2T.rZf/CUslCk2asNAghkfYmjMgaZhCF1m', '../../../assets/images/admin/avatar_2.png');
 
@@ -219,7 +219,6 @@ ALTER TABLE `admin`
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category` (`category`);
-ALTER TABLE `book` ADD FULLTEXT KEY `name` (`name`);
 
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category`);
@@ -230,9 +229,6 @@ ALTER TABLE `customer`
 
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `book_image`
-  ADD PRIMARY KEY (`book_id`,`link`);
 
 ALTER TABLE `reviewed_by`
   ADD PRIMARY KEY (`book_id`,`customer_id`,`date_review`),

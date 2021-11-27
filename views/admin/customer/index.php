@@ -65,7 +65,7 @@ while ($item = mysqli_fetch_assoc($result)) {
                             <td><?php echo $customer['name']; ?></td>
                             <td><?php echo $customer['email']; ?></td>
                             <td><?php echo $customer['phone']; ?></td>
-                            <td><?php echo $customer['birthdate']; ?></td>
+                            <td><?php echo $customer['birthday']; ?></td>
                             <td><?php echo $customer['registered_at']; ?></td>
                             <td><?php echo $customer['active']; ?></td>
                             <td><button class="btn btn-primary" data-toggle="modal" data-target="#customerEditModal<?php echo $customer['id']; ?>">Edit</button>
@@ -127,7 +127,7 @@ while ($item = mysqli_fetch_assoc($result)) {
                             <div class="form-group row align-items-center justify-content-center">
                                 <label for="birthday-edit-<?php echo $customer['id']; ?>" class="col-2 col-form-label"><strong>Birthday</strong></label>
                                 <div class="col-10">
-                                    <input class="form-control" type="date" value="<?php echo $customer['birthdate']; ?>" id="birthday-edit-<?php echo $customer['id']; ?>">
+                                    <input class="form-control" type="date" value="<?php echo $customer['birthday']; ?>" id="birthday-edit-<?php echo $customer['id']; ?>">
                                 </div>
                                 <span class="text-danger" id="birthdayErr"></span>
                             </div>

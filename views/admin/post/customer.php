@@ -38,7 +38,7 @@
         
         $queryCusTable = "UPDATE customer 
                     SET name='$name', email='$email', phone='$phone', 
-                        birthdate='$birthday', registered_at='$register_at', active='$active', avatar = '$avatar'
+                        birthday='$birthday', registered_at='$register_at', active='$active', avatar = '$avatar'
                     WHERE id=$id;";
         $queryVerTable = "UPDATE verification_account
                             SET email='$email'

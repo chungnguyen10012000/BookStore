@@ -41,7 +41,7 @@
                                 <div class="form-group row">
                                     <label for="birthday" class="col-4 col-form-label">Birthday</label> 
                                     <div class="col-8">
-                                        <input id="birthday" name="birthday" placeholder="Birthday" class="form-control here" required="required" type="date"  value="<?php echo $customer['birthdate']; ?>">
+                                        <input id="birthday" name="birthday" placeholder="Birthday" class="form-control here" required="required" type="date"  value="<?php echo $customer['birthday']; ?>">
                                     </div>
                                 </div> 
                                 <div class="form-group row">

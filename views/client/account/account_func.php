@@ -50,7 +50,7 @@
         $uncheck_constraint = "SET FOREIGN_KEY_CHECKS=0";
         $recheck_constraint = "SET FOREIGN_KEY_CHECKS=1";
         $queryCusTable = "UPDATE customer
-                    SET name='$name', email='$email', phone='$phone', birthdate='$birthday', avatar = '$avatar'
+                    SET name='$name', email='$email', phone='$phone', birthday='$birthday', avatar = '$avatar'
                     WHERE id=$id;";
         $queryVerifyTable = "UPDATE verification_account
                 SET email='$email'

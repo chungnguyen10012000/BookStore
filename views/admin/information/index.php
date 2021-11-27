@@ -43,7 +43,7 @@ if (!$_SESSION['id_admin']) {
                                 <table class="table table-hover table-responsive-lg" id='tableProfile'>
                                     <?php
                                     $sql = "select email, first_name, last_name, 
-                                    user_name , phone, birthdate, avatar from admin WHERE id= '" . $_SESSION['id_admin'] . "'";
+                                    user_name , phone, birthday, avatar from admin WHERE id= '" . $_SESSION['id_admin'] . "'";
                                     $result = $mysql_db->query($sql);
                                     $row = $result->fetch_assoc();
                                     ?>
@@ -70,7 +70,7 @@ if (!$_SESSION['id_admin']) {
                                     </tr>
                                     <tr>
                                         <th>Birthday</th>
-                                        <td><?php echo $row['birthdate']; ?></td>
+                                        <td><?php echo $row['birthday']; ?></td>
                                     </tr>
                                     <tr>
                                         <th>Avatar</th>
@@ -145,7 +145,7 @@ if (!$_SESSION['id_admin']) {
                         <div class="form-group row">
                             <label for="inputBirthday" class="col-sm-2 col-form-label font-weight-bold">Birthday</label>
                             <div class="col-sm-10" id="formBirthday">
-                                <input name="birthday" type="date" class="form-control" id="inputBirthday" value="<?php echo $row['birthdate']; ?>">
+                                <input name="birthday" type="date" class="form-control" id="inputBirthday" value="<?php echo $row['birthday']; ?>">
                             </div>
                         </div>
                         <div class=" modal-footer d-flex justify-content-center">

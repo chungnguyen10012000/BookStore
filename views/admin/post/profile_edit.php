@@ -162,7 +162,7 @@ move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
         last_name = '" . $_POST['lastName'] . "' , 
         email = '" . $_POST['email'] . "' ,
         phone = '" . $_POST['phone'] . "' ,
-        birthdate = '" . $_POST['birthday'] . "' ,
+        birthday = '" . $_POST['birthday'] . "' ,
         avatar = '" . $target_file . "'
         where id='" . $_SESSION['id_admin'] . "'  
         ";
