@@ -32,15 +32,15 @@ if (!$_SESSION['id_admin']) {
         <!-- start code     -->
         <div class="row">
             <div class="col-12">
-                <div class="col d-flex justify-content-end">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#staffModal">Add new employee</button>
-                </div>
                 <br>
                 <div class="card">
                     <div class="card-header">
-                        <h3 id="titleTable">
+                        <h3 id="titleTable" style="margin-top: 50px;">
                             All Employees
                         </h3>
+                        <div class="col d-flex justify-content-end">
+                    <button class="btn btn-success" data-toggle="modal" data-target="#staffModal">Add new employee</button>
+                </div>
                     </div>
                     <div class="card-content">
                         <table class="table table-striped table-hover table-responsive-lg" style="table-layout:fixed;">

@@ -46,20 +46,19 @@ if (!$_SESSION['id_admin']) {
     <div class="container-fluid">
         <div class="row">
 
-
                 <!-- start code -->
                 <div class="row">
                     <div class="col-12">
-                        <div class="col d-flex justify-content-end">
-                            <button class="btn btn-success" data-toggle="modal"
-                                data-target="#bookModal" >Add new book</button>
-                        </div>
                         <br>
                         <div class="card">
                             <div class="card-header">
-                                <h3 id="titleTable">
+                                <h3 id="titleTable" style="margin-top: 50px;">
                                     All Books
                                 </h3>
+                                <div class="col d-flex justify-content-end">
+                            <button class="btn btn-success" data-toggle="modal"
+                                data-target="#bookModal" >Add new book</button>
+                            </div>
                             </div>
                             <div class="card-content">
                                 <table class="table table-striped table-hover table-responsive-lg"
