@@ -13,14 +13,4 @@
             </div>
         </div>
     </div>
-    <div class="copyright container">
-        <div class="row text-center">
-            <div class="copy col-md-6 mb-3">
-                Copyright &copy;. All Rights Reserved
-            </div>
-            <div class="payment col-md-6 mb-3">
-                <img src="../../../assets/images/payment.png" alt="img-fluid">
-            </div>
-        </div>
-    </div>
 </footer>

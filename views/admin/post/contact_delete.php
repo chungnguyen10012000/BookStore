@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../../../data/config.php";
+require "../../../connection/config.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = "Server Error, operation cancelled";
     $query = "delete from send_email_log where id = '" . $_POST['id'] . "'";

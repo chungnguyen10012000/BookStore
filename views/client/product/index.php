@@ -2,7 +2,7 @@
 session_start();
 ?>
 <?php 
-    require("../../../data/Product.php");
+    require("../../../connection/Product.php");
     // Get categories data
     $categoriesDetail = $product->getCategoriesDetail();
 

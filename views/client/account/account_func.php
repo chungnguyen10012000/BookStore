@@ -1,5 +1,5 @@
 <?php 
-    require ('../../../data/config.php'); 
+    require ('../../../connection/config.php'); 
     $action = isset($_POST['action']) ? $_POST['action'] : "";
     if ($action == "update_info") {
         $id = $_POST['id'];

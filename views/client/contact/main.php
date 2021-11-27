@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="../../../assets/css/contact_page/main.css">
+ <link rel="stylesheet" href="../../../assets/css/contact/main.css">
  <main class="contact_area margin-top">
      <!-- Content -->
      <section class="contact_content">
@@ -79,4 +79,4 @@
         alert('Thank you for responding!!!')
      }
  </script>
- <script src="../../../assets/js/contact_page/postEmail.js"></script>
+ <script src="../../../assets/js/contact/postEmail.js"></script>

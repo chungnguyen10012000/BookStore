@@ -1,6 +1,6 @@
 <!-- Side bar -->
 <?php
-    require "../../../data/config.php";
+    require "../../../connection/config.php";
     session_start();
     if (!$_SESSION['id_admin']) {
         header("Location: ../login/index.php");

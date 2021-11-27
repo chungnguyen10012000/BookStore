@@ -4,7 +4,7 @@ session_start();
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 <?php
-require "../../../data/config.php";
+require "../../../connection/config.php";
 if (!$_SESSION['id_admin']) {
     header("Location: ../login/index.php");
 }
@@ -413,7 +413,7 @@ if (!$_SESSION['id_admin']) {
             // alert(author);
             // alert(id + " " + name + " "+ author +" "+ category +" "+ price +" "+ description+" "+image);
             $.post(
-                "../post/book_function.php", {
+                "../post/book.php", {
                     action: "edit_book",
                     id,
                     name,
@@ -433,7 +433,7 @@ if (!$_SESSION['id_admin']) {
         
         function deleteBook(book_id) {
             $.post(
-                "../post/book_function.php", {
+                "../post/book.php", {
                     action: "delete_book",
                     id: book_id
                 },
@@ -455,7 +455,7 @@ if (!$_SESSION['id_admin']) {
             author = author.split(', ');
             // alert('abc');
             $.post(
-                "../post/book_function.php", {
+                "../post/book.php", {
                     action: "add_book",
                     name,
                     author,
@@ -477,7 +477,7 @@ if (!$_SESSION['id_admin']) {
             let customer_id = id_arr[1];
             alert(book_id);
             $.post(
-                "../post/book_function.php", {
+                "../post/book.php", {
                     action: "delete_review",
                     book_id,
                     customer_id

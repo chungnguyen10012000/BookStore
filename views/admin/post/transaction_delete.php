@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../../../data/config.php";
+require "../../../connection/config.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $uncheck_constraint = "SET FOREIGN_KEY_CHECKS=0;";

@@ -12,7 +12,7 @@
 
 <body>
     <?php 
-        require ('../../../data/config.php');
+        require ('../../../connection/config.php');
         if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
             $query = "select email, hash from verification_account where email = ? and hash = ?";            
             $stmt = mysqli_prepare($mysql_db, $query);
@@ -31,10 +31,10 @@
                 print '<p class="mesg">Your account have been activated successfully. Click <a href="./login.php">here</a> to go log in.</p>';    
             }
             else {
-                print '<p class="mesg">Invalid approach, please use the link that has been sent to your email. Click <a href="../home_page">here</a> to go back home.</p>';    
+                print '<p class="mesg">Invalid approach, please use the link that has been sent to your email. Click <a href="../home">here</a> to go back home.</p>';    
             }
         }else{
-            print '<p class="mesg">Invalid approach, please use the link that has been sent to your email. Click <a href="../home_page">here</a> to go back home.</p>';
+            print '<p class="mesg">Invalid approach, please use the link that has been sent to your email. Click <a href="../home">here</a> to go back home.</p>';
         }
     ?>
 </body>

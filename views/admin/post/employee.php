@@ -1,7 +1,7 @@
 <?php
     $action = isset($_POST['action']) ? $_POST['action'] : "";
 
-    require_once "../../../data/config.php";
+    require_once "../../../connection/config.php";
 
     if ($action == "edit_employee"){
         $id = $_POST['id'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "../../../data/config.php";
+require "../../../connection/config.php";
 
 function validUserName($data)
 {

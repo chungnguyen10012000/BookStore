@@ -5,7 +5,7 @@ session_start();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 <?php
     $book_id = $_GET["id"]; 
-    require ('../../../data/config.php'); 
+    require ('../../../connection/config.php'); 
 
     $sql = "SELECT name, price, description, image, released from book where id = $book_id";
     $res = $mysql_db -> query($sql);
@@ -87,7 +87,7 @@ session_start();
 </script>
 
 
-<link rel="stylesheet" href="../../../assets/css/detail_book_page/detail_book.css">
+<link rel="stylesheet" href="../../../assets/css/detail_book/detail_book.css">
 <div class="container-fluid" style="margin-top: 100px">
     <div class="row">
         <div class="col-md-9" id="thumb">

@@ -1,5 +1,5 @@
 <?php 
-    require "../../../data/config.php";
+    require "../../../connection/config.php";
     $action = isset($_POST['action']) ? $_POST['action'] : "";
 
     // Delete Customer

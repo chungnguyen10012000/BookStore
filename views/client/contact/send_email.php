@@ -1,6 +1,6 @@
 <?php
 // define variables and set to empty values
-require_once '../../../data/config.php';
+require_once '../../../connection/config.php';
 
 //use PHPMailer\PHPMailer\PHPMailer;
 

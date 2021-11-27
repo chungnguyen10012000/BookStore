@@ -1,6 +1,6 @@
 <?php
 
-require '../../../data/config.php';
+require '../../../connection/config.php';
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -147,14 +147,14 @@ function site_url($url)
                     } elseif (!empty($successful_mesg)) {
                         print "<script>
                             alert('$successful_mesg')
-                            window.location.href = '../home_page/index.php'
+                            window.location.href = '../home/index.php'
                         </script>";
                     }
                     ?>
                     <hr>
                     <div class="action-btn">
                         <button type="submit" class="btn btn-primary btn-submit btn-block">Submit</button>
-                        <a href="../home_page/" class="btn btn-outline-secondary btn-block mr-t">Cancel</a>
+                        <a href="../home/" class="btn btn-outline-secondary btn-block mr-t">Cancel</a>
                     </div>
                 </form>
             </div>

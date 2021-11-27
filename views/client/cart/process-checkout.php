@@ -1,5 +1,5 @@
 <?php 
-    require_once '../../../data/config.php';
+    require_once '../../../connection/config.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query = "insert into shopping_log(customer_id, total_price, created_at) values (?,?,?)";
 

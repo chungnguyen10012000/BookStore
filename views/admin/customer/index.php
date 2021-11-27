@@ -1,5 +1,5 @@
 <?php
-require "../../../data/config.php";
+require "../../../connection/config.php";
 session_start();
 if (!$_SESSION['id_admin']) {
     header("Location: ../login/index.php");
@@ -170,7 +170,7 @@ while ($item = mysqli_fetch_assoc($result)) {
         function deleteCustomer(customer_id, customer_email) {
             if (confirm("DELETE this Customer?")) {
                 $.post(
-                    "../post/customer_func.php", {
+                    "../post/customer.php", {
                         action: "delete_customer",
                         id: customer_id,
                         email: customer_email
@@ -196,7 +196,7 @@ while ($item = mysqli_fetch_assoc($result)) {
             var active = $("#active-edit-" + customer_id).val();
             var avatar = $("#avatar-edit-" + customer_id).val();
             $.post(
-                "../post/customer_func.php", {
+                "../post/customer.php", {
                     action: "edit_customer",
                     id: id,
                     name: name,

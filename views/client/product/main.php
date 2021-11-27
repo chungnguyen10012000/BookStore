@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../assets/css/product_page/product.css">
+<link rel="stylesheet" href="../../../assets/css/product/product.css">
 
 <div class="product-page py-5" style="margin-top: 100px">
     <div class="container">
@@ -30,7 +30,7 @@
                     <?php foreach ($books as $book) { ?>
                         <div class="product text-center col-lg-4 col-md-4 col-sm-6 col-6 mb-5">
                             <div class="product-thumbnail">
-                                <a href="../detail_book_page/index.php?id=<?php echo $book['id']; ?>"><img style="max-height: 210px;" src="<?php echo $book['image'] ?>" alt="product<?php echo $book['id']; ?>" class="img-fluid">
+                                <a href="../detail_book/index.php?id=<?php echo $book['id']; ?>"><img style="max-height: 210px;" src="<?php echo $book['image'] ?>" alt="product<?php echo $book['id']; ?>" class="img-fluid">
                                 </a>
                                 <div class="hot-box" <?php if ($book['is_top'] == 0) echo "hidden"; ?>>
                                     <span class="hot-label">TOP</span>

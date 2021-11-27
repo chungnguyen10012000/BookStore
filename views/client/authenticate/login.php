@@ -1,9 +1,9 @@
 <?php
-        require ('../../../data/config.php');    
+        require ('../../../connection/config.php');    
         $error = '';
         session_start();
         if (isset($_SESSION['email'])) {
-            header('Location: ../home_page/');
+            header('Location: ../home/');
             exit();
         }
         else {                        
@@ -46,7 +46,7 @@
                                 // Redirect user to welcome page
                                 echo "<script>
                                     alert('Login successful')
-                                    window.location.href = '../home_page/index.php'
+                                    window.location.href = '../home/index.php'
                                 </script>";
                             } else{
                                 // Password is not valid, display a generic error message

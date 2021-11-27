@@ -1,6 +1,6 @@
 <?php 
 
-    require_once '../../../data/config.php';
+    require_once '../../../connection/config.php';
     // echo $_SERVER["REQUEST_METHOD"];
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cookie_data = stripslashes($_COOKIE['shopping_cart']);

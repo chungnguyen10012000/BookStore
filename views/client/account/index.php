@@ -19,7 +19,7 @@ session_start();
     <?php include( "../include/header.php"); ?>
     <?php 
         $id = $_SESSION['id'];
-        require ('../../../data/config.php'); 
+        require ('../../../connection/config.php'); 
         $query = "SELECT * FROM customer WHERE id=$id";
         $result = $mysql_db->query($query);
         $customer = array();
