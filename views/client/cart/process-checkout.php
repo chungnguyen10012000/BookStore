@@ -26,5 +26,8 @@
         mysqli_stmt_close($stmt);
         setcookie("shopping_cart", "", time() - 3600, '/');
     }
-
 ?>
+<script
+  src="https://www.paypal.com/sdk/js?client-id=AXh8m1Y-nMI2tniu6qPIHzF9lTzof_hc-QeLcp2ibW0S_uWjTkc8FAeHjtrrYjeFBKY5e0NamSkNkE0R&currency=USD"
+  data-sdk-integration-source="button-factory">
+</script>

@@ -38,17 +38,17 @@
                     ?>
                  <div class="col-md-3 col-6 my-md-4 my-3 d-flex align-items-stretch">
                      <div class="team_member card text-center border-danger">
-                         <img class="card-img-top img-fluid" src=<?php echo "../../.." . $row['link_image']; ?>
+                         <img class="card-img-top img-fluid" src=<?php echo "../../.." . $row['image']; ?>
                              alt="A team member">
                          <div class="card-body">
-                             <h5 class="card-title"><?php echo $row['full_name']; ?></h5>
-                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row['work_as']; ?></h6>
+                             <h5 class="card-title"><?php echo $row['name']; ?></h5>
+                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $row['role']; ?></h6>
                              <nav id="nav_member">
-                                 <a href=<?php echo $row["link_twitter"]; ?> class="card-link"><i
+                                 <a href=<?php echo $row["twitter"]; ?> class="card-link"><i
                                          class="fab fa-twitter"></i></a>
-                                 <a href=<?php echo $row["link_facebook"]; ?> class="card-link"><i
+                                 <a href=<?php echo $row["facebook"]; ?> class="card-link"><i
                                          class="fab fa-facebook-f"></i></a>
-                                 <a href=<?php echo $row["link_instagram"]; ?> class="card-link"><i
+                                 <a href=<?php echo $row["instagram"]; ?> class="card-link"><i
                                          class="fab fa-instagram"></i></a>
                              </nav>
                          </div>

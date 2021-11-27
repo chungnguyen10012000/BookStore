@@ -4,7 +4,7 @@
 }
 
 .bg-img {
-    background-image: url('../../images/home_page/bg_subscribe.jpg');
+    background-image: url('../../images/home/bg_subscribe.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -70,7 +70,7 @@
 }
 
 .content_box a.shopbtn::after {
-    background: rgba(0, 0, 0, 0) url('../../images/home_page/arrow.png') repeat scroll 100% 50%;
+    background: rgba(0, 0, 0, 0) url('../../images/home/arrow.png') repeat scroll 100% 50%;
     content: "";
     display: inline-block;
     height: 11px;

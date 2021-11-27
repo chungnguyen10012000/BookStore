@@ -23,7 +23,7 @@
         $description= $_POST['description'];
         $image= $_POST['image'];
         $sql = "update book set name = '$name', category = '$category',
-                price = '$price', description = '$description', link_image = '$image' where id = $id";
+                price = '$price', description = '$description', image = '$image' where id = $id";
         $res = $mysql_db->query($sql);
         $sql = "delete from written_by where book_id = $id";
         $res = $res && $mysql_db->query($sql);
@@ -42,12 +42,12 @@
         $price= $_POST['price'];
         $description= $_POST['description'];
         $image= $_POST['image'];        
-        $sql = "insert into book(name, category, price, description, link_image, published_at) 
+        $sql = "insert into book(name, category, price, description, image, released) 
                 values(?,?,?,?,?,?)";
                 // '$name', '$category', '$price', '$description', '$image', 'now()'
         $stmt = mysqli_prepare($mysql_db, $sql);
-        $published_at = date('Y-m-d');
-        mysqli_stmt_bind_param($stmt, 'ssssss', $name, $category, $price, $description, $image, $published_at);
+        $released = date('Y-m-d');
+        mysqli_stmt_bind_param($stmt, 'ssssss', $name, $category, $price, $description, $image, $released);
         mysqli_stmt_execute($stmt);
         $id = $mysql_db->insert_id;
         $res = true;

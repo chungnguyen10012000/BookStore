@@ -66,17 +66,17 @@ if (!$_SESSION['id_admin']) {
                                 $res = $mysql_db->query($sql);
                                 $employ = array();
                                 while ($row = $res->fetch_assoc()) {
-                                    array_push($employ, array($row['id'], $row['full_name'], $row['work_as'], $row['link_image'], $row['link_facebook'], $row['link_twitter'], $row['link_instagram']));
+                                    array_push($employ, array($row['id'], $row['name'], $row['role'], $row['image'], $row['facebook'], $row['twitter'], $row['instagram']));
 
                                 ?>
                                     <tr>
                                         <td> <?php echo $row['id'] ?> </td>
-                                        <td> <?php echo $row['full_name'] ?> </td>
-                                        <td> <?php echo $row['work_as'] ?> </td>
-                                        <td> <?php echo $row['link_image'] ?> </td>
-                                        <td> <?php echo $row['link_facebook'] ?> </td>
-                                        <td> <?php echo $row['link_twitter'] ?> </td>
-                                        <td> <?php echo $row['link_instagram'] ?> </td>
+                                        <td> <?php echo $row['name'] ?> </td>
+                                        <td> <?php echo $row['role'] ?> </td>
+                                        <td> <?php echo $row['image'] ?> </td>
+                                        <td> <?php echo $row['facebook'] ?> </td>
+                                        <td> <?php echo $row['twitter'] ?> </td>
+                                        <td> <?php echo $row['instagram'] ?> </td>
 
 
                                         <td> <button class="btn btn-primary" data-toggle="modal" data-target="#staffEditModal<?php echo $row['id'] ?>">Edit</button>

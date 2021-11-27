@@ -7,7 +7,7 @@ session_start();
     $book_id = $_GET["id"]; 
     require ('../../../data/config.php'); 
 
-    $sql = "SELECT name, price, description, link_image, published_at from book where id = $book_id";
+    $sql = "SELECT name, price, description, image, released from book where id = $book_id";
     $res = $mysql_db -> query($sql);
 
     $name_book ="";
@@ -18,8 +18,8 @@ session_start();
         $name_book = $row['name'];
         $price = $row['price'];
         $description = $row['description'];
-        $published = $row['published_at'];
-        $link = $row['link_image'];
+        $published = $row['released'];
+        $link = $row['image'];
     }
 
     // get author
@@ -95,12 +95,12 @@ session_start();
                 <div class="col-md-6">
                     <div class="fotorama" data-nav="thumbs">    
                         <?php
-                            $sql = "SELECT link from image_foto where book_id = $book_id";
+                            $sql = "SELECT image from book where id = $book_id";
                             $res = $mysql_db -> query($sql);
                             while ($row = $res -> fetch_assoc()){
                         ?>
                             
-                            <img src=" <?php echo $row['link'] ?> " alt="image">
+                            <img src=" <?php echo $row['image'] ?> " alt="image">
                         <?php
                             }
                         ?>
